@@ -1,27 +1,63 @@
 body{
   font-family: Montserrat;
-  font-style: oblique;
+}
+
+#mynavbar {
+  padding: 10px 0; /* Adjust as needed */
+  background-color:black;
+  font-weight: 400;
+  font-size: large;
 
 }
 
-#mynavbar {  
-  background-color: black;
-  border-radius: 7px;
-  align-items: center;
+#mynavbar .navbar-brand{
+  height: 60px;
+  display: flex;
+  animation: bounceInLeft;
+  animation-duration: 1750ms; 
 }
 
-#mynavbar li a {  
-  color: whitesmoke; 
+#mynavbar .navbar-nav {
+  margin: auto;
+  display:flex;
+  justify-content:center;
+
+}
+
+#mynavbar .navbar-nav .nav-item-portfolio {
+  margin: 0 10px;
+  animation: bounceInLeft;
+  animation-duration: 1750ms;
+
+}
+
+#mynavbar .navbar-nav .nav-item-about {
+  margin: 0 10px;
+  animation: bounceInDown;
+  animation-duration: 2s;
+
+}
+
+#mynavbar .navbar-nav .nav-item-contact {
+  margin: 0 10px;
+  animation: bounceInRight;
+  animation-duration: 2250ms;
+
+}
+#mynavbar .navbar-nav .nav-link {
+  color: whitesmoke;
   border: 1px solid transparent;
   border-radius: 7px;
+
 }
 
-#mynavbar li a:hover {
-  background-color: whitesmoke;  
-  color: black;        
+#mynavbar .navbar-nav .nav-link:hover {
+  background-color: whitesmoke;
+  color: black;
   border: 1px solid transparent;
   border-radius: 7px;
-  animation: tada;
+  animation: pulse;
   animation-duration: 1s;
-  animation-delay:500ms;
+
 }
+
