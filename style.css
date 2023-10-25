@@ -1,0 +1,26 @@
+body{
+  font-family: Montserrat;
+  font-style: oblique;
+
+}
+
+#mynavbar {  
+  background-color: black;
+  border-radius: 7px;
+}
+
+#mynavbar li a {  
+  color: whitesmoke; 
+  border: 1px solid transparent;
+  border-radius: 7px;
+}
+
+#mynavbar li a:hover {
+  background-color: whitesmoke;  
+  color: black;        
+  border: 1px solid transparent;
+  border-radius: 7px;
+  animation: tada;
+  animation-duration: 1s;
+  animation-delay:500ms;
+}
