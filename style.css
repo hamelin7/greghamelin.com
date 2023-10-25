@@ -34,14 +34,14 @@ body{
 #mynavbar .navbar-nav .nav-item-about {
   margin: 0 10px;
   animation: bounceInDown;
-  animation-duration: 2s;
+  animation-duration: 1750ms;
 
 }
 
 #mynavbar .navbar-nav .nav-item-contact {
   margin: 0 10px;
   animation: bounceInRight;
-  animation-duration: 2250ms;
+  animation-duration: 1750ms;
 
 }
 #mynavbar .navbar-nav .nav-link {
