@@ -7,18 +7,17 @@ body{
   background-color:black;
   font-weight: 400;
   font-size: large;
-  height: 69px;
 }
 
 #mynavbar .navbar-brand{
-  height: 68px;
+  height: 69px;
   display: flex;
-  animation: bounceInLeft;
+  animation: zoomInDown;
   animation-duration: 1750ms; 
 }
 
 #mynavbar .navbar-nav {
-  margin: auto;
+  margin:auto;
   display:flex;
   flex-direction: row;
   justify-content:center;
@@ -46,6 +45,7 @@ body{
   color: whitesmoke;
   border: 1px solid transparent;
   border-radius: 7px;
+
 }
 
 #mynavbar .navbar-nav .nav-link:hover {
