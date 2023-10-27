@@ -17,7 +17,7 @@ body{
 }
 
 #mynavbar .navbar-nav {
-  margin:auto;
+  margin: auto;
   display:flex;
   flex-direction: row;
   justify-content:center;
