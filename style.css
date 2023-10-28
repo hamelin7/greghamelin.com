@@ -60,6 +60,40 @@ body{
   height: 35px; 
 }
 
+#background_image {
+  background-image: url('assets/images/home-background.jpg');
+  background-size:cover; 
+  background-repeat: no-repeat;
+  height: 100vh;
+  animation: fadeIn;
+  animation-duration: 2200ms;  
+}
+
+#home-screen-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items:center; /* Center vertically */
+  height: 50vh;
+}
+
+#home-screen-text {
+  text-align:center;
+  color: white;
+  text-shadow: #000;
+}
+
+h1{
+  font-family: 'Montserrat Subrayada';
+  font-size:45px;
+  animation: fadeIn;
+  animation-duration: 2500ms;
+}
+
+h2{
+  animation: fadeIn;
+  animation-duration: 2500ms;
+}
+
 #contact {
   color: white;
 }
