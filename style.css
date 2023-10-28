@@ -13,7 +13,7 @@ body{
   height: 69px;
   display: flex;
   animation: zoomInDown;
-  animation-duration: 1750ms; 
+  animation-duration: 1700ms; 
 }
 
 #mynavbar .navbar-nav {
@@ -24,21 +24,19 @@ body{
 }
 
 #mynavbar .navbar-nav .nav-item-portfolio {
-  margin: 0 10px;
-  animation: bounceInLeft;
-  animation-duration: 1750ms;
+  margin: 5px 10px;
+  animation: bounceInRight;
+  animation-duration: 1500ms;
 }
 
 #mynavbar .navbar-nav .nav-item-about {
+  display: flex;
   margin: 0 10px;
-  animation: bounceInDown;
-  animation-duration: 1750ms;
-}
-
-#mynavbar .navbar-nav .nav-item-contact {
-  margin: 0 10px;
-  animation: bounceInRight;
-  animation-duration: 1750ms;
+  position: absolute;
+  top: auto;
+  right: 10px;
+  animation: bounceInLeft;
+  animation-duration: 1900ms;
 }
 
 #mynavbar .navbar-nav .nav-link {
@@ -57,3 +55,21 @@ body{
   animation-duration: 1s;
 }
 
+#linkedin img {
+  width: 35px; 
+  height: 35px; 
+}
+
+#contact {
+  color: white;
+}
+
+#myfooter {
+  background-color: #000; 
+  color: #fff; 
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
