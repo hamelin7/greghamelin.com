@@ -10,7 +10,7 @@ body{
 }
 
 #mynavbar .navbar-brand{
-  height: 69px;
+  height: 59px;
   display: flex;
   animation: bounceInDown;
   animation-duration: 1500ms; 
