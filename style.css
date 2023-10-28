@@ -27,7 +27,7 @@ body{
 #mynavbar .navbar-nav .nav-item-portfolio {
   margin: 5px 10px;
   animation: bounceInDown;
-  animation-duration: 1500ms;
+  animation-duration: 1800ms;
 }
 
 #mynavbar .navbar-nav .nav-item-about {
@@ -37,7 +37,7 @@ body{
   top: auto;
   right: 10px;
   animation: bounceInDown;
-  animation-duration: 1500ms;
+  animation-duration: 2100ms;
 }
 
 #mynavbar .navbar-nav .nav-link {
@@ -56,8 +56,8 @@ body{
 }
 
 #linkedin img {
-  width: 35px; 
-  height: 35px; 
+  width: 39px; 
+  height: 39px; 
 }
 
 #background_image {
