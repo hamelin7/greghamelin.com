@@ -45,7 +45,7 @@ body{
   margin: 0 10px;
   position:absolute;
   top: 10px;
-  left: 215px;
+  left: 200px;
   animation: bounceInDown;
   animation-duration: 2000ms;
 }
@@ -55,7 +55,7 @@ body{
   margin: 0 10px;
   position: absolute;
   top: 10px;
-  left: 315px;
+  left: 300px;
   animation: bounceInDown;
   animation-duration: 2200ms;
 }
