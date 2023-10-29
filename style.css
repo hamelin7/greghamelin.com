@@ -29,19 +29,35 @@ body{
 }
 
 #mynavbar .navbar-nav .nav-item-portfolio {
+  color: whitesmoke;
+  display:flex;
   margin: 5px 10px;
+  position:absolute;
+  top: 10px;
+  left: 85px;
   animation: bounceInDown;
   animation-duration: 1800ms;
 }
 
-#mynavbar .navbar-nav .nav-item-about {
+
+#mynavbar .navbar-nav .nav-item-github {
+  display: flex;
+  margin: 0 10px;
+  position:absolute;
+  top: 10px;
+  left: 215px;
+  animation: bounceInDown;
+  animation-duration: 2000ms;
+}
+
+#mynavbar .navbar-nav .nav-item-linkedin {
   display: flex;
   margin: 0 10px;
   position: absolute;
-  top: auto;
-  right: 10px;
+  top: 10px;
+  left: 315px;
   animation: bounceInDown;
-  animation-duration: 2100ms;
+  animation-duration: 2200ms;
 }
 
 #mynavbar .navbar-nav .nav-link {
@@ -56,6 +72,20 @@ body{
   border: 1px solid transparent;
   border-radius: 7px;
   animation: pulse;
+  animation-duration: 1s;
+}
+
+#github img {
+  width: 39px; 
+  height: 39px; 
+}
+
+#github img:hover {
+  background-color: black;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  animation: tada;
   animation-duration: 1s;
 }
 
@@ -117,12 +147,12 @@ h1{
   font-family: 'Montserrat Subrayada';
   font-size:45px;
   animation: fadeIn;
-  animation-duration: 2800ms;
+  animation-duration: 3500ms;
 }
 
 h2{
   animation: fadeIn;
-  animation-duration: 3200ms;
+  animation-duration: 3500ms;
 }
 
 #contact {
