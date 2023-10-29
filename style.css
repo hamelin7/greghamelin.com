@@ -99,6 +99,7 @@ body{
 }
 
 #home-screen-text {
+  margin-top: 129px;
   text-align:center;
   color: white;
   text-shadow: #000;
