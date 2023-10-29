@@ -64,6 +64,14 @@ body{
   height: 39px; 
 }
 
+#linkedin img:hover {
+  background-color: black;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  animation: pulse;
+  animation-duration: 1s;
+}
 .image-container::after {
   content: '';
   position: absolute;
