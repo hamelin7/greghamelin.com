@@ -1,3 +1,4 @@
-const title_change = function(){
-    return(<h2>Developer</h2>)
-};
+var title_change = document.getElementById("title");
+
+title_text.innerHTML = "Developer";
+
