@@ -1,4 +1,16 @@
-var title_change = document.getElementById("title");
+const titles = [
+    'Developer',
+    'Programmer',
+    'Designer'
+];
 
-title_text.innerHTML = "Developer";
+let titlesIndex = 0;
 
+const changeTitle = function(){
+    const title = document.getElementById("title");
+    title.textContent = titles[titlesIndex];
+    titlesIndex = (titlesIndex + 1) % titles.length;
+
+};
+
+setInterval(changeTitle, 2500);
