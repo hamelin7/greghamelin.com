@@ -1,7 +1,10 @@
 const titles = [
     'Pizza Fanatic',
-    'SysAdmin',
     'Developer',
+    'Dad',
+    'Sys Admin',
+    'Musician',
+
 ];
 
 let titlesIndex = 0;
