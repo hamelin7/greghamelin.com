@@ -29,34 +29,36 @@ body{
   align-items: center;
 }
 
-#mynavbar .navbar-nav .nav-item-portfolio {
-  color: whitesmoke;
-  display:flex;
-  margin: 5px 10px;
-  position:absolute;
+#mynavbar .navbar-nav .nav-item-linkedin {
+  display: flex;
+  order: 1;
+  margin: 0 10px;
+  position: absolute;
   top: 10px;
-  left: 85px;
+  left: 70%;
+  right: 10px;
   animation: bounceInDown;
-  animation-duration: 1800ms;
+  animation-duration: 2200ms;
 }
-
 
 #mynavbar .navbar-nav .nav-item-github {
   display: flex;
+  order: 2;
   margin: 0 10px;
   position:absolute;
   top: 10px;
-  left: 200px;
+  left: 80%;
   animation: bounceInDown;
   animation-duration: 2000ms;
 }
 
-#mynavbar .navbar-nav .nav-item-linkedin {
+#mynavbar .navbar-nav .nav-item-email {
   display: flex;
+  order: 3;
   margin: 0 10px;
   position: absolute;
   top: 10px;
-  left: 300px;
+  left: 90%;
   right: 10px;
   animation: bounceInDown;
   animation-duration: 2200ms;
@@ -65,7 +67,7 @@ body{
 #mynavbar .navbar-nav .nav-link {
   color: whitesmoke;
   border: 1px solid transparent;
-  border-radius: 7px;
+  border-radius: 9px;
 }
 
 #mynavbar .navbar-nav .nav-link:hover {
@@ -104,6 +106,21 @@ body{
   animation: pulse;
   animation-duration: 1s;
 }
+
+.nav-item-email img {
+  width: 49px;
+  height: 39px;
+}
+
+.nav-item-email img:hover {
+  background-color: black;
+  color: black;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  animation: pulse;
+  animation-duration: 1s;
+}
+
 .image-container::after {
   content: '';
   position: absolute;
@@ -155,6 +172,7 @@ h1{
 h2{
   animation: fadeIn;
   animation-duration: 3500ms;
+  letter-spacing: 4px;
 }
 
 #contact {
@@ -176,15 +194,15 @@ h2{
   margin: 0 20px;
   height: 200px; 
   width: 275px;
-  position: relative; /* This allows you to position the text absolutely relative to the flex box */
+  position: relative; 
   background-color: rgba(0, 0, 0, 0.5);
-  animation: fadeInUp;
-  animation-duration: 500ms;
+  animation: backInLeft;
+  animation-duration: 1500ms;
 }
 
 .flex-box:hover {
-  transform: scale(1.12); /* makes the hovered box slightly larger */
-  z-index: 1; /* ensures the hovered box is above the others */
+  transform: scale(1.06); 
+  z-index: 1;
   background-color: initial;
 }
 
@@ -207,16 +225,17 @@ body.darken {
 
 .flex-box:hover img {
   transform: scale(1);
-  opacity: .75;
+  opacity: .85;
 }
 
 .overlay-text {
   position: absolute;
   top: 18%;
   left: 50%;
-  transform: translate(-50%, -50%); /* This centers the text */
-  color: white; /* Change this to whatever color you want the text to be */
+  transform: translate(-50%, -50%); 
+  color: whitesmoke;
   font-size: 3em;
+  letter-spacing: 2px;
 }
 
 .flex-box:hover .overlay-text {
@@ -237,6 +256,18 @@ body.darken {
   #home-screen-text {
     margin-top: 5vh;
   }
+
+  #mynavbar .navbar-nav .nav-item-linkedin {
+    left: 25%;
+  }
+  #mynavbar .navbar-nav .nav-item-github {
+    left: 50%;
+  } 
+
+  #mynavbar .navbar-nav .nav-item-email {
+    left: 75%;
+  } 
+  
 }
 
 #myfooter {

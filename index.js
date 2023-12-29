@@ -1,10 +1,17 @@
 const titles = [
-    'Pizza Fanatic',
-    'Developer',
-    'Dad',
-    'Sys Admin',
-    'Musician',
-
+    'Python',
+    'JavaScript',
+    'React',
+    'Node.js',
+    'Express',
+    'MySQL',
+    'Ubuntu',
+    'Git',
+    'HTML',
+    'CSS',
+    'TCP/IP',
+    'Bash',
+    
 ];
 
 let titlesIndex = 0;
