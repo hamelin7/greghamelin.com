@@ -117,8 +117,8 @@ body{
   color: black;
   border: 1px solid transparent;
   border-radius: 7px;
-  animation: pulse;
-  animation-duration: 1s;
+  animation: swing;
+  animation-duration: 1.5s;
 }
 
 .image-container::after {
@@ -165,9 +165,10 @@ body{
 h1{
   font-family: 'Montserrat Subrayada';
   font-size:55px;
+  color: rgb(255, 255, 255);
   animation: fadeIn;
-  animation-duration: 3500ms;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  animation-duration: 2500ms;
+  text-shadow: 8px 8px 16px rgba(0, 0, 0, 1);
 }
 
 h2{
@@ -176,6 +177,8 @@ h2{
   animation-duration: 3500ms;
   letter-spacing: 4px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  animation: backInRight;
+  animation-duration: 1.5s;
 }
 
 #contact {
@@ -192,21 +195,23 @@ h2{
 
 .flex-box {
   background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid whitesmoke;
+  border: 0px solid whitesmoke;
   border-radius: 12px;
   margin: 0 20px;
   height: 200px; 
   width: 275px;
   position: relative; 
   background-color: rgba(0, 0, 0, 0.5);
-  animation: backInLeft;
-  animation-duration: 1500ms;
+  animation: zoomIn;
+  animation-duration: 1100ms;
 }
 
 .flex-box:hover {
   transform: scale(1.06); 
   z-index: 1;
   background-color: initial;
+  border: 3px solid rgb(243, 60, 164);
+
 }
 
 body.darken {
@@ -229,6 +234,7 @@ body.darken {
 .flex-box:hover img {
   transform: scale(1);
   opacity: .85;
+;
 }
 
 .overlay-text {
@@ -237,7 +243,7 @@ body.darken {
   top: 18%;
   left: 50%;
   transform: translate(-50%, -50%); 
-  color: rgb(234, 234, 234);
+  color: rgb(255, 255, 255);
   font-size: 2.5em;
   letter-spacing: 5.5px;
   text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
