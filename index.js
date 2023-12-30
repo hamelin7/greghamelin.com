@@ -5,13 +5,13 @@ const titles = [
     'Node.js',
     'Express',
     'MySQL',
-    'Ubuntu',
+    'GNU/Linux',
     'Git',
     'HTML',
     'CSS',
     'TCP/IP',
     'Bash',
-    
+
 ];
 
 let titlesIndex = 0;

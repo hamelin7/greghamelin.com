@@ -4,14 +4,14 @@ body{
 }
 
 #mynavbar {
-  padding: 10px 0; /* Adjust as needed */
+  padding: 10px 0; 
   background-color:black;
   font-weight: 400;
   font-size: large;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000; /* Adjust the z-index if necessary */
+  z-index: 1000;
 }
 
 #mynavbar .navbar-brand{
@@ -125,16 +125,16 @@ body{
   content: '';
   position: absolute;
   width: 100%;
-  height: 20%; /* Adjust the height to control the blurring effect */
+  height: 20%; /* control the blurring effect */
   top: 0;
   background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
-  backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+  backdrop-filter: blur(10px); /* blur radius */
   z-index: -1;
 }
 
 .image-container::after {
   bottom: 0;
-  top: unset; /* Clear the top position */
+  top: unset;
 }
 
 #background_image {
@@ -150,8 +150,8 @@ body{
 
 #home-screen-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: 50vh; /* Center vertically */
+  justify-content: center;
+  align-items: 50vh;
   height: 50vh;
 }
 
@@ -167,12 +167,15 @@ h1{
   font-size:55px;
   animation: fadeIn;
   animation-duration: 3500ms;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 h2{
+  
   animation: fadeIn;
   animation-duration: 3500ms;
   letter-spacing: 4px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 #contact {
@@ -229,13 +232,15 @@ body.darken {
 }
 
 .overlay-text {
+  font-weight: bold;
   position: absolute;
   top: 18%;
   left: 50%;
   transform: translate(-50%, -50%); 
-  color: whitesmoke;
-  font-size: 3em;
-  letter-spacing: 2px;
+  color: rgb(234, 234, 234);
+  font-size: 2.5em;
+  letter-spacing: 5.5px;
+  text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 .flex-box:hover .overlay-text {
