@@ -190,7 +190,6 @@ h1{
 }
 
 h2{
-  
   animation: fadeIn;
   animation-duration: 3500ms;
   letter-spacing: 4px;
@@ -284,6 +283,7 @@ body.darken {
     flex-direction: column;
   }
   .flex-box .overlay-text {
+    top: 13%;
     font-size: 18px;
     letter-spacing: 2.25px;
  
@@ -313,12 +313,17 @@ body.darken {
 
   #myfooter .footer_text {
     font-size: small;
-
   }
 
   .flex-container {
     top: -35px;
+  }
 
+  #home-screen-text {
+    margin-top: -150px;
+  }
+  h2{
+    margin-top: 15px;
   }
   
 }
