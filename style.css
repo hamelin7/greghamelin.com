@@ -204,6 +204,7 @@ h2{
   background-color: rgba(0, 0, 0, 0.5);
   animation: zoomIn;
   animation-duration: 1100ms;
+  
 }
 
 .flex-box:hover {
@@ -246,13 +247,12 @@ body.darken {
   color: rgb(255, 255, 255);
   font-size: 2.5em;
   letter-spacing: 5.5px;
-  text-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+
 }
 
 .flex-box:hover .overlay-text {
   
   opacity: 0;
-  font-size: 3em;
 
 }
 
@@ -281,10 +281,15 @@ body.darken {
 
   .flex-box {
     margin: 0 5px;
-    height: 200px; 
-    width: 275px;
+    height: 100px; 
+    width: 137.5px;
 
   }
+
+  #myfooter .footer_text {
+    font-size: small;
+
+}
   
 }
 
@@ -306,19 +311,6 @@ body.darken {
 #myfooter .footer_text {
     animation: bounceInLeft;
     animation-duration: 1700ms;
+    
 
 }
-
-#myfooter .footer_text_powered {
-    margin-left: 50px;
-    animation: bounceInLeft;
-    animation-duration: 1700ms;
-}
-
-#github-pages-logo {
-  width: 120px; 
-  height: 20px; 
-  animation: bounceInLeft;
-  animation-duration: 1700ms;
-}
-
