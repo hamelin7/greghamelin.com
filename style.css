@@ -278,6 +278,13 @@ body.darken {
   #mynavbar .navbar-nav .nav-item-email {
     left: 75%;
   } 
+
+  .flex-box {
+    margin: 0 5px;
+    height: 200px; 
+    width: 275px;
+
+  }
   
 }
 
@@ -287,13 +294,31 @@ body.darken {
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex; /* Add this line */
+  flex-direction: column; /* Add this line */
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 10px 0;
-
+  margin-right: 20px;
 }
 
 #myfooter .footer_text {
-  animation: bounceInLeft;
-  animation-duration: 1700ms;
+    animation: bounceInLeft;
+    animation-duration: 1700ms;
 
 }
+
+#myfooter .footer_text_powered {
+    margin-left: 50px;
+    animation: bounceInLeft;
+    animation-duration: 1700ms;
+}
+
+#github-pages-logo {
+  width: 120px; 
+  height: 20px; 
+  animation: bounceInLeft;
+  animation-duration: 1700ms;
+}
+
