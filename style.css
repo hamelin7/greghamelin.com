@@ -256,6 +256,12 @@ body.darken {
 
 }
 
+@media screen and (max-width: 1236px) {
+  .flex-box .overlay-text {
+    font-size: 30px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #home-screen-container {
     flex-direction: column;
