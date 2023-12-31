@@ -59,4 +59,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  
+  // Select all flexboxes
+const flexBoxes = document.querySelectorAll('.flex-box');
+
+// Select the background image
+const backgroundImage = document.querySelector('#background_image');
+
+// Loop over each flexbox
+flexBoxes.forEach(flexBox => {
+  // Add event listener for mouseover event
+  flexBox.addEventListener('mouseover', function() {
+    // Darken the background image
+    backgroundImage.style.filter = 'brightness(50%)';
+  });
+
+  // Add event listener for mouseout event
+  flexBox.addEventListener('mouseout', function() {
+    // Remove the filter from the background image
+    backgroundImage.style.filter = '';
+  });
+});

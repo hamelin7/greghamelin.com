@@ -138,8 +138,9 @@ body{
 }
 
 #background_image {
-  background-image: url('assets/images/home-background.jpg');
+  background-image: url('assets/images/monhegan-shore.jpg');
   background-size:cover; 
+  background-position: center;
   background-repeat: no-repeat;
   display: block;
   align-content: center;
@@ -151,16 +152,33 @@ body{
 #home-screen-container {
   display: flex;
   justify-content: center;
-  align-items: 50vh;
+  align-items: center;
   height: 50vh;
+  position: relative;
 }
 
 #home-screen-text {
-  margin-top: 15vh;
+  margin-top: -70px;
   text-align:center;
   color: white;
   text-shadow: #000;
+  position: relative;
+  z-index: 1;
 }
+
+/*
+.transparent-box {
+  background-color: rgba(39, 101, 118, 0.09);
+  border-radius: 10px;
+  width: 450px;
+  height: 130px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  position: relative; 
+
+}
+*/
 
 h1{
   font-family: 'Montserrat Subrayada';
@@ -194,7 +212,7 @@ h2{
 }
 
 .flex-box {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 0, 183, 0.1);
   border: 0px solid whitesmoke;
   border-radius: 12px;
   margin: 0 20px;
@@ -251,7 +269,6 @@ body.darken {
 }
 
 .flex-box:hover .overlay-text {
-  
   opacity: 0;
 
 }
@@ -269,6 +286,7 @@ body.darken {
   .flex-box .overlay-text {
     font-size: 18px;
     letter-spacing: 2.25px;
+ 
   }
 
   #home-screen-text {
@@ -288,7 +306,7 @@ body.darken {
 
   .flex-box {
     margin: 0 5px;
-    height: 100px; 
+    height: 137.5px; 
     width: 137.5px;
 
   }
@@ -296,12 +314,12 @@ body.darken {
   #myfooter .footer_text {
     font-size: small;
 
-}
+  }
 
-.flex-container {
-  top: -35px;
+  .flex-container {
+    top: -35px;
 
-}
+  }
   
 }
 
@@ -311,8 +329,8 @@ body.darken {
   position: fixed;
   bottom: 0;
   width: 100%;
-  display: flex; /* Add this line */
-  flex-direction: column; /* Add this line */
+  display: flex; 
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -324,5 +342,26 @@ body.darken {
     animation: bounceInLeft;
     animation-duration: 1700ms;
     
-
 }
+
+/*css for background video
+#background_video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#background_video video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#background_video .content {
+  position: relative;
+  z-index: 1;
+}
+*/
