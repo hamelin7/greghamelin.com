@@ -267,8 +267,8 @@ body.darken {
     flex-direction: column;
   }
   .flex-box .overlay-text {
-    /*display: none;*/
-    font-size: 13px;
+    font-size: 18px;
+    letter-spacing: 2.25px;
   }
 
   #home-screen-text {
