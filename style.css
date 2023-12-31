@@ -261,7 +261,8 @@ body.darken {
     flex-direction: column;
   }
   .flex-box .overlay-text {
-    display: none;
+    /*display: none;*/
+    font-size: 13px;
   }
 
   #home-screen-text {
@@ -288,6 +289,11 @@ body.darken {
 
   #myfooter .footer_text {
     font-size: small;
+
+}
+
+.flex-container {
+  top: -35px;
 
 }
   
