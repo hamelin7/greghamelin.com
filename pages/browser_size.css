@@ -194,6 +194,11 @@ h1  {
 @media only screen and (max-width: 680px), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
     #counter {
         padding:50px 0
+        
+    }
+    
+    h1{
+        font-size: 30px;
     }
 
     #counter .width,#counter .height {
@@ -208,4 +213,17 @@ h1  {
         height: 15px;
         width: 170px
     }
+
+    #mynavbar .navbar-nav .nav-item-linkedin {
+        left: 25%;
+      }
+    
+    #mynavbar .navbar-nav .nav-item-github {
+        left: 50%;
+      } 
+    
+    #mynavbar .navbar-nav .nav-item-email {
+        left: 75%;
+      } 
+
 }
