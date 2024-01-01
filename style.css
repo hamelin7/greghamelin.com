@@ -299,6 +299,10 @@ body.darken {
     margin-top: 5vh;
   }
 
+  #mynavbar .navbar-nav .nav-item-browser {
+    display: none;
+  }
+
   #mynavbar .navbar-nav .nav-item-linkedin {
     left: 25%;
   }
