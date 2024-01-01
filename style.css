@@ -218,7 +218,7 @@ h2{
   height: 200px; 
   width: 275px;
   position: relative; 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   animation: zoomIn;
   animation-duration: 1100ms;
   
@@ -256,7 +256,8 @@ body.darken {
 }
 
 .overlay-text {
-  font-weight: bold;
+  font-family: Heebo; 
+  font-weight: 300;
   position: absolute;
   top: 18%;
   left: 50%;
@@ -267,10 +268,12 @@ body.darken {
 
 }
 
+
 .flex-box:hover .overlay-text {
   opacity: 0;
 
 }
+
 
 @media screen and (max-width: 1236px) {
   .flex-box .overlay-text {
