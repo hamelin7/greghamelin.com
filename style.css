@@ -29,9 +29,24 @@ body{
   align-items: center;
 }
 
+#mynavbar .navbar-nav .nav-item-browser {
+  display: flex;
+  color: #fa2bbc;
+  font-weight: 400;
+  order: 1;
+  border: 1px solid #fa2bbc;
+  border-radius: 7px;
+  margin: 0 10px;
+  position: absolute;
+  top: 15 px;
+  animation: bounceInDown;
+  animation-duration: 2400ms;
+ 
+}
+
 #mynavbar .navbar-nav .nav-item-linkedin {
   display: flex;
-  order: 1;
+  order: 2;
   margin: 0 10px;
   position: absolute;
   top: 10px;
@@ -43,7 +58,7 @@ body{
 
 #mynavbar .navbar-nav .nav-item-github {
   display: flex;
-  order: 2;
+  order: 3;
   margin: 0 10px;
   position:absolute;
   top: 10px;
@@ -54,7 +69,7 @@ body{
 
 #mynavbar .navbar-nav .nav-item-email {
   display: flex;
-  order: 3;
+  order: 4;
   margin: 0 10px;
   position: absolute;
   top: 10px;
@@ -65,18 +80,16 @@ body{
 }
 
 #mynavbar .navbar-nav .nav-link {
-  color: whitesmoke;
+  color: #fa2bbc;
   border: 1px solid transparent;
   border-radius: 9px;
 }
 
 #mynavbar .navbar-nav .nav-link:hover {
-  background-color: whitesmoke;
+  background-color: #fa2bbc;
   color: black;
   border: 1px solid transparent;
   border-radius: 7px;
-  animation: pulse;
-  animation-duration: 1s;
 }
 
 #github img {
@@ -85,10 +98,6 @@ body{
 }
 
 #github img:hover {
-  background-color: black;
-  color: black;
-  border: 1px solid transparent;
-  border-radius: 7px;
   animation: tada;
   animation-duration: 1s;
 }
@@ -99,10 +108,6 @@ body{
 }
 
 #linkedin img:hover {
-  background-color: black;
-  color: black;
-  border: 1px solid transparent;
-  border-radius: 7px;
   animation: pulse;
   animation-duration: 1s;
 }
@@ -113,13 +118,14 @@ body{
 }
 
 .nav-item-email img:hover {
-  background-color: black;
-  color: black;
-  border: 1px solid transparent;
-  border-radius: 7px;
   animation: swing;
   animation-duration: 1.5s;
 }
+
+/*#mynavbar .navbar-nav .nav-item-browser:hover {
+  animation: pulse;
+  animation-duration: 1.5s;
+}*/
 
 .image-container::after {
   content: '';

@@ -1,0 +1,211 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: #f759c8;
+    color: #fff;
+    display: table;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+
+#mynavbar {
+    padding: 10px 0; 
+    background-color:black;
+    font-weight: 400;
+    font-size: large;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  #mynavbar .navbar-brand{
+    height: 59px;
+    display: flex;
+    animation: bounceInDown;
+    animation-duration: 1500ms; 
+  }
+  
+  #mynavbar .navbar-nav {
+    margin: auto;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+  }
+  
+  #mynavbar .navbar-nav .nav-item-linkedin {
+    display: flex;
+    order: 1;
+    margin: 0 10px;
+    position: absolute;
+    top: 10px;
+    left: 70%;
+    right: 10px;
+    animation: bounceInDown;
+    animation-duration: 2200ms;
+  }
+  
+  #mynavbar .navbar-nav .nav-item-github {
+    display: flex;
+    order: 2;
+    margin: 0 10px;
+    position:absolute;
+    top: 10px;
+    left: 80%;
+    animation: bounceInDown;
+    animation-duration: 2000ms;
+  }
+  
+  #mynavbar .navbar-nav .nav-item-email {
+    display: flex;
+    order: 3;
+    margin: 0 10px;
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    right: 10px;
+    animation: bounceInDown;
+    animation-duration: 2200ms;
+  }
+  
+  #mynavbar .navbar-nav .nav-link {
+    color: whitesmoke;
+    border: 1px solid transparent;
+    border-radius: 9px;
+  }
+  
+  #mynavbar .navbar-nav .nav-link:hover {
+    background-color: whitesmoke;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    animation: pulse;
+    animation-duration: 1s;
+  }
+  
+  #github img {
+    width: 39px; 
+    height: 39px; 
+  }
+  
+  #github img:hover {
+    background-color: black;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    animation: tada;
+    animation-duration: 1s;
+  }
+  
+  #linkedin img {
+    width: 39px; 
+    height: 39px; 
+  }
+  
+  #linkedin img:hover {
+    background-color: black;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    animation: pulse;
+    animation-duration: 1s;
+  }
+  
+  .nav-item-email img {
+    width: 49px;
+    height: 39px;
+  }
+  
+  .nav-item-email img:hover {
+    background-color: black;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    animation: swing;
+    animation-duration: 1.5s;
+  }
+
+h1  {
+    font-family: "Montserrat";
+    font-size: 50px;
+    letter-spacing: 2.5px;
+}
+
+* {
+    background-size: 100% !important
+}
+
+#container,#counter,.width,.height,#divider {
+    display: inline-block;
+}
+
+#container {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    animation:jackInTheBox;
+    animation-duration: 1500ms;
+
+}
+
+#counter {
+    background: #98227b;
+    border: 15px solid #fc9ae7;
+    border-radius: 7px;
+    display: inline-block;
+    font-family: "Heebo";
+    font-size: 70px;
+    font-weight: bold;
+    padding: 0 50px;
+    position: relative;
+    vertical-align: middle;
+
+}
+
+  .width {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .height {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  
+#counter #divider {
+    background: #fc9ae7;
+    background-size: 100%;
+    display: inline-block;
+    margin: 0 20px;
+    height: 170px;
+    width: 15px;
+    vertical-align: middle
+}
+
+@media only screen and (max-width: 680px), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    #counter {
+        padding:50px 0
+    }
+
+    #counter .width,#counter .height {
+        display: block
+    }
+
+    #counter #divider {
+        background: #fc9ae7;
+        background-size: 100%;
+        display: inline-block;
+        margin: 50px 0;
+        height: 15px;
+        width: 170px
+    }
+}
