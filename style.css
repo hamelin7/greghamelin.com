@@ -87,9 +87,11 @@ body{
 
 #mynavbar .navbar-nav .nav-link:hover {
   background-color: #fa2bbc;
-  color: black;
+  color: whitesmoke;
   border: 1px solid transparent;
   border-radius: 7px;
+  animation: pulse;
+  animation-duration: 1s;
 }
 
 #github img {
@@ -121,11 +123,6 @@ body{
   animation: swing;
   animation-duration: 1.5s;
 }
-
-/*#mynavbar .navbar-nav .nav-item-browser:hover {
-  animation: pulse;
-  animation-duration: 1.5s;
-}*/
 
 .image-container::after {
   content: '';
