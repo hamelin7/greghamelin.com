@@ -228,6 +228,7 @@ h1  {
 
 }
 
+/* set h1 font-size for */
 @media screen and (max-width: 400px){
   h1{
     font-size: 35px;
