@@ -70,7 +70,7 @@ flexBoxes.forEach(flexBox => {
   // Add event listener for mouseover event
   flexBox.addEventListener('mouseover', function() {
     // Darken the background image
-    backgroundImage.style.filter = 'brightness(90%)';
+    backgroundImage.style.filter = 'brightness(85%)';
   });
 
   // Add event listener for mouseout event
