@@ -295,29 +295,13 @@ body.darken {
 
 
 @media screen and (max-width: 1236px) {
+
   .flex-box .overlay-text {
     font-size: 40px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  h1{
-    font-size: 50px;
-  }
-  #home-screen-container {
-    flex-direction: column;
-  }
-  .flex-box .overlay-text {
-    top: 20%;
-    font-size: 20px;
-    letter-spacing: 2.25px;
- 
-  }
-
-  #home-screen-text {
-    margin-top: 5vh;
-  }
-
   #mynavbar .navbar-nav .nav-item-browser {
     display: none;
   }
@@ -332,6 +316,26 @@ body.darken {
   #mynavbar .navbar-nav .nav-item-email {
     left: 75%;
   } 
+  
+  h1{
+    font-size: 50px;
+  }
+
+  h2{
+    margin-top: 15px;
+  }
+
+  #home-screen-container {
+    flex-direction: column;
+  }
+
+  #home-screen-text {
+    margin-top: 5vh;
+  }
+
+  .flex-container {
+    top: -35px;
+  }
 
   .flex-box {
     margin: 0 5px;
@@ -339,22 +343,17 @@ body.darken {
     width: 137.5px;
 
   }
+  .flex-box .overlay-text {
+    top: 20%;
+    font-size: 20px;
+    letter-spacing: 2.25px;
+ 
+  }
 
   #myfooter .footer_text {
     font-size: small;
   }
-
-  .flex-container {
-    top: -35px;
-  }
-
-  #home-screen-text {
-    margin-top: -150px;
-  }
-  h2{
-    margin-top: 15px;
-  }
-  
+ 
 }
 
 #myfooter {
