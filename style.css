@@ -1,6 +1,7 @@
 body{
   font-family: Montserrat;
-  background-color: rgba(0, 0, 0, 0.4)
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: hidden;/*added to remove scrollbar*/
 }
 
 #mynavbar {
@@ -142,6 +143,21 @@ body{
 
 #background_image {
   background-image: url('assets/images/monhegan-shore.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100vh;
+  animation: fadeIn;
+  animation-duration: 2200ms;
+}
+
+/*previous background settings
+#background_image {
+  background-image: url('assets/images/monhegan-shore.jpg');
   background-size:cover; 
   background-position: center;
   background-repeat: no-repeat;
@@ -150,18 +166,18 @@ body{
   margin-top: 79px;
   animation: fadeIn;
   animation-duration: 2200ms;
-}
+}*/
 
 #home-screen-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 60vh;
   position: relative;
 }
 
 #home-screen-text {
-  margin-top: -70px;
+  margin-top: -50px;
   text-align:center;
   color: white;
   text-shadow: #000;
@@ -185,7 +201,7 @@ body{
 
 h1{
   font-family: 'Montserrat Subrayada';
-  font-size:55px;
+  font-size:75px;
   color: rgb(255, 255, 255);
   animation: fadeIn;
   animation-duration: 2500ms;
@@ -209,19 +225,19 @@ h2{
   display: flex;
   justify-content: center;
   position: relative;
-  top: -70px;
+  /*top: -70px*/
+  top: -100px;
 
 }
 
 .flex-box {
-  background-color: rgba(255, 0, 183, 0.1);
+  background-color: rgba(17, 0, 13, 0.9);
   border: 0px solid whitesmoke;
   border-radius: 12px;
   margin: 0 20px;
   height: 200px; 
   width: 275px;
   position: relative; 
-  background-color: rgba(0, 0, 0, 0.75);
   animation: zoomIn;
   animation-duration: 1100ms;
   
@@ -231,7 +247,7 @@ h2{
   transform: scale(1.06); 
   z-index: 1;
   background-color: initial;
-  border: 3px solid rgb(243, 60, 164);
+  border: 4px solid rgb(243, 60, 164);
 
 }
 
@@ -262,11 +278,11 @@ body.darken {
   font-family: Heebo; 
   font-weight: 300;
   position: absolute;
-  top: 18%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%); 
   color: rgb(255, 255, 255);
-  font-size: 2.5em;
+  font-size: 2.75em;
   letter-spacing: 5.5px;
 
 }
@@ -280,7 +296,7 @@ body.darken {
 
 @media screen and (max-width: 1236px) {
   .flex-box .overlay-text {
-    font-size: 30px;
+    font-size: 40px;
   }
 }
 
@@ -289,8 +305,8 @@ body.darken {
     flex-direction: column;
   }
   .flex-box .overlay-text {
-    top: 13%;
-    font-size: 18px;
+    top: 20%;
+    font-size: 30px;
     letter-spacing: 2.25px;
  
   }
