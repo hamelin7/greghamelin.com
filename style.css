@@ -30,6 +30,21 @@ body{
   align-items: center;
 }
 
+#mynavbar .navbar-nav .nav-item-weather {
+  display: flex;
+  color: #fa2bbc;
+  font-weight: 400;
+  order: 1;
+  border: 1px solid #fa2bbc;
+  border-radius: 7px;
+  margin: 0 10px;
+  position: absolute;
+  top: 15 px;
+  animation: bounceInDown;
+  animation-duration: 2400ms;
+ 
+}
+
 #mynavbar .navbar-nav .nav-item-browser {
   display: flex;
   color: #fa2bbc;
