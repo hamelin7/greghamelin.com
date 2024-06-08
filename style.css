@@ -49,7 +49,7 @@ body{
   display: flex;
   color: #fa2bbc;
   font-weight: 400;
-  order: 1;
+  order: 2;
   border: 1px solid #fa2bbc;
   border-radius: 7px;
   margin: 0 10px;
@@ -62,7 +62,7 @@ body{
 
 #mynavbar .navbar-nav .nav-item-linkedin {
   display: flex;
-  order: 2;
+  order: 3;
   margin: 0 10px;
   position: absolute;
   top: 10px;
@@ -74,7 +74,7 @@ body{
 
 #mynavbar .navbar-nav .nav-item-github {
   display: flex;
-  order: 3;
+  order: 4;
   margin: 0 10px;
   position:absolute;
   top: 10px;
@@ -85,7 +85,7 @@ body{
 
 #mynavbar .navbar-nav .nav-item-email {
   display: flex;
-  order: 4;
+  order: 5;
   margin: 0 10px;
   position: absolute;
   top: 10px;
