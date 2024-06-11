@@ -318,7 +318,7 @@ body.darken {
 }
 
 @media screen and (max-width: 768px) {
-  #mynavbar .navbar-nav .nav-item-browser {
+  #mynavbar .navbar-nav .nav-item-browser .nav-item-weather{
     display: none;
   }
 
