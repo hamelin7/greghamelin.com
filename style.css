@@ -318,6 +318,10 @@ body.darken {
 }
 
 @media screen and (max-width: 768px) {
+  #mynavbar .navbar-nav .nav-item-weather {
+    display: none;
+  }
+
   #mynavbar .navbar-nav .nav-item-browser {
     display: none;
   }
