@@ -322,6 +322,7 @@ body.darken {
     display: none;
   }
 }
+
 @media screen and (max-width: 932px) {
   #mynavbar .navbar-nav .nav-item-browser {
     display: none;
