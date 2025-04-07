@@ -137,11 +137,19 @@ input, select, textarea {
 			}
 
 		}
+		@media screen and (max-width: 976px) {
 
+			#scroll-statement {
+				display: none;
+			}
+		}
 		@media screen and (max-width: 360px) {
 
 			html, input, select, textarea {
 				font-size: 11pt;
+			}
+			#scroll-statement {
+				display: none;
 			}
 
 		}
