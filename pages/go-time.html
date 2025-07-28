@@ -8,6 +8,9 @@
     <style>
         .main-header {
             width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,7 +18,11 @@
             /* Matches the RESET button gradient */
             box-shadow: 0 2px 12px rgba(0,0,0,0.10);
             min-height: 80px; /* Ensures enough height for vertical centering */
-            margin-bottom: 12px;
+            margin-bottom: 0;
+            z-index: 10;
+        }
+        body {
+            padding-top: 80px; /* Prevent content from being hidden under the fixed header */
         }
         .main-title {
             font-size: 2.8rem;
@@ -91,10 +98,13 @@
         /* GO button gradient */
         .go {
             background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            filter: brightness(0.85);
+            transition: filter 0.2s;
         }
-        /* STOP button gradient */
         .stop {
-            background: linear-gradient(135deg, #ff5858 0%, #f857a6 100%);
+            background: linear-gradient(135deg,#ff5858 0%, #f857a6 100%);
+            filter: brightness(0.85);
+            transition: filter 0.2s;
         }
         /* Label styling inside buttons */
         .label {
