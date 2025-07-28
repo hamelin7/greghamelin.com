@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Go Time</title>
+    <!-- Favicon: green circle + red circle SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='10' cy='16' r='7' fill='%2343e97b'/%3E%3Ccircle cx='22' cy='16' r='7' fill='%23ff5858'/%3E%3C/svg%3E">
+    <style>
+        .main-header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Matches the RESET button gradient */
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+            min-height: 80px; /* Ensures enough height for vertical centering */
+            margin-bottom: 12px;
+        }
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            margin-bottom: 12px; /* Remove default margin for better centering */
+        }
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: #000000e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        /* Style for the RESET button */
+        .reset-btn {
+            margin-bottom: 22px;
+            padding: 14px 48px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 1px;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .reset-btn:active {
+            transform: scale(0.97);
+            background: linear-gradient(135deg, #5a67d8 0%, #6b47b6 100%);
+        }
+        h1 {
+            /*margin-top: 35px;*/
+            /*margin-bottom: 20px;*/
+            color: #ffffff;
+        }
+        /* Layout for the timer buttons */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+        /* Common styles for timer buttons */
+        .timer-btn {
+            width: 230px;
+            height: 230px;
+            border: none;
+            border-radius: 115px;
+            font-size: 2rem;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: transform 0.1s;
+            outline: none;
+            user-select: none;
+        }
+        .timer-btn:active {
+            transform: scale(0.97);
+        }
+        /* GO button gradient */
+        .go {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        /* STOP button gradient */
+        .stop {
+            background: linear-gradient(135deg, #ff5858 0%, #f857a6 100%);
+        }
+        /* Label styling inside buttons */
+        .label {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        /* Timer text styling */
+        .time {
+            font-size: 2.2rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1 class="main-title">
+            Go Time
+        </h1>
+    </header>
+    <div class="buttons">
+        <!-- GO button with timer display -->
+        <button id="goBtn" class="timer-btn go">
+            <span class="label">GO</span>
+            <span id="goTime" class="time">00:00:00</span>
+        </button>
+        <!-- STOP button with timer display -->
+        <button id="stopBtn" class="timer-btn stop" disabled>
+            <span class="label">STOP</span>
+            <span id="stopTime" class="time">00:00:00</span>
+        </button>
+    </div>
+    <script>
+        // Timer variables and interval holders
+        let goTimer = 0, stopTimer = 0;
+        let goInterval = null, stopInterval = null;
+
+        // Get references to DOM elements
+        const goBtn = document.getElementById('goBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const goTime = document.getElementById('goTime');
+        const stopTime = document.getElementById('stopTime');
+
+        // Helper function to format seconds as HH:MM:SS
+        function formatTime(sec) {
+            const h = String(Math.floor(sec / 3600)).padStart(2, '0');
+            const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+            const s = String(sec % 60).padStart(2, '0');
+            return `${h}:${m}:${s}`;
+        }
+
+        // Start the GO timer, enable STOP button, disable GO button
+        function startGo() {
+            goBtn.disabled = true;
+            stopBtn.disabled = false;
+            stopBtn.style.opacity = 1;
+            goInterval = setInterval(() => {
+                goTimer++;
+                goTime.textContent = formatTime(goTimer);
+            }, 1000);
+            // Stop the STOP timer if running
+            clearInterval(stopInterval);
+            //stopTimer = 0;
+            stopTime.textContent = formatTime(stopTimer);
+        }
+
+        // Start the STOP timer, enable GO button, disable STOP button
+        function startStop() {
+            stopBtn.disabled = true;
+            goBtn.disabled = false;
+            goInterval && clearInterval(goInterval);
+            stopInterval = setInterval(() => {
+                stopTimer++;
+                stopTime.textContent = formatTime(stopTimer);
+            }, 1000);
+        }
+
+        // Reset both timers and update UI
+        function resetTimers() {
+            clearInterval(goInterval);
+            clearInterval(stopInterval);
+            goTimer = 0;
+            stopTimer = 0;
+            goTime.textContent = formatTime(goTimer);
+            stopTime.textContent = formatTime(stopTimer);
+            goBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
+
+        // Attach event listeners to buttons
+        goBtn.addEventListener('click', startGo);
+        stopBtn.addEventListener('click', startStop);
+
+        // Only insert RESET button if it doesn't already exist
+        if (!document.getElementById('resetBtn')) {
+            const resetBtn = document.createElement('button');
+            resetBtn.textContent = 'RESET';
+            resetBtn.className = 'reset-btn';
+            resetBtn.id = 'resetBtn';
+            resetBtn.style.marginTop = '14px'; // Add margin above the button
+            resetBtn.addEventListener('click', resetTimers);
+
+            // Insert reset button after the STOP button
+            const stopBtnEl = document.getElementById('stopBtn');
+            stopBtnEl.parentNode.insertBefore(resetBtn, stopBtnEl.nextSibling);
+        }
+
+        // Initialize timers and button states on page load
+        goBtn.disabled = false;
+        stopBtn.disabled = true;
+        goTime.textContent = formatTime(goTimer);
+        stopTime.textContent = formatTime(stopTimer);
+    </script>
+</body>
+</html>
