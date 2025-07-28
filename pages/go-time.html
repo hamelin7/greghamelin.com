@@ -159,18 +159,30 @@
             return `${h}:${m}:${s}`;
         }
 
+        // Use timestamps to ensure timers are accurate even if the browser is inactive
+
+        let goStartTimestamp = null;
+        let stopStartTimestamp = null;
+
         // Start the GO timer, enable STOP button, disable GO button
         function startGo() {
             goBtn.disabled = true;
             stopBtn.disabled = false;
             stopBtn.style.opacity = 1;
+
+            // Record the start time for GO, accounting for any previous elapsed time
+            goStartTimestamp = Date.now() - goTimer * 1000;
+
+            // Update GO timer display every second
+            goInterval && clearInterval(goInterval);
             goInterval = setInterval(() => {
-                goTimer++;
-                goTime.textContent = formatTime(goTimer);
+            goTimer = Math.floor((Date.now() - goStartTimestamp) / 1000);
+            goTime.textContent = formatTime(goTimer);
             }, 1000);
+
             // Stop the STOP timer if running
             clearInterval(stopInterval);
-            //stopTimer = 0;
+            stopStartTimestamp = null;
             stopTime.textContent = formatTime(stopTimer);
         }
 
@@ -178,10 +190,19 @@
         function startStop() {
             stopBtn.disabled = true;
             goBtn.disabled = false;
+
+            // Stop GO timer
             goInterval && clearInterval(goInterval);
+            goStartTimestamp = null;
+
+            // Record the start time for STOP, accounting for any previous elapsed time
+            stopStartTimestamp = Date.now() - stopTimer * 1000;
+
+            // Update STOP timer display every second
+            stopInterval && clearInterval(stopInterval);
             stopInterval = setInterval(() => {
-                stopTimer++;
-                stopTime.textContent = formatTime(stopTimer);
+            stopTimer = Math.floor((Date.now() - stopStartTimestamp) / 1000);
+            stopTime.textContent = formatTime(stopTimer);
             }, 1000);
         }
 
