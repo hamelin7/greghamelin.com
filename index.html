@@ -1,105 +1,444 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Greg Hamelin | Developer</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat Subrayada" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greg Hamelin | vCIO & Cybersecurity Strategist</title>
+    <meta name="description" content="Greg Hamelin — vCIO, CMMC Certified Professional, and Cybersecurity Strategist with 10+ years of IT leadership experience. Specializing in strategic IT planning, CMMC compliance, and AWS cloud architecture.">
+    <meta name="author" content="Greg Hamelin">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Greg Hamelin | vCIO & Cybersecurity Strategist">
+    <meta property="og:description" content="vCIO and CMMC Certified Professional with 10+ years driving IT transformation, compliance, and secure infrastructure for growth-oriented organizations.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://greghamelin.com">
+    <meta property="og:image" content="https://greghamelin.com/assets/images/greg-headshot.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="style.css" rel="stylesheet">
     <link rel="icon" href="assets/images/favicon_G.png">
   </head>
 
   <body>
-    <nav id="mynavbar" class="navbar navbar-expand-sm navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="assets/images/favicon_G.png" /></a>
-          <ul class="navbar-nav">
-            <li class="nav-item-weather">
-              <a class="nav-link d-lg-inline" href="pages/go-time.html">Go Time!</a>
-            </li>
-            <li class="nav-item-browser">
-              <a class="nav-link d-lg-inline" href="pages/browser_size.html">How BIG is Your Browser?</a>
-            </li>
-              <li class="nav-item-linkedin">
-              <a id="linkedin" class="nav-link d-lg-inline" href="https://www.linkedin.com/in/greg-hamelin-70429030/" target="_blank">
-                <img src="assets/images/In-White.png" alt="LinkedIn Profile">
-              </a>
-            </li>
-            <li class="nav-item-github">
-              <a id="github" class="nav-link d-lg-inline" href="https://github.com/hamelin7" target="_blank">
-                <img src="assets/images/github-mark-white.png" alt="GitHub Profile">
-              </a>
-            </li>
-            <li class="nav-item-email">
-              <a id="email" class="nav-link d-lg-inline" href="mailto:greg@greghamelin.com" target="_blank">
-                <img src="assets/images/email-icon.png" alt="Email">
-              </a>
-          </ul>       
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <a href="#hero" class="nav-logo">G<span>.</span></a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+        <div class="nav-social">
+          <a href="https://www.linkedin.com/in/greg-hamelin-70429030/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/hamelin7" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a href="mailto:greg@greghamelin.com" aria-label="Send Email">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
         </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
 
-  <div class="image-container">
-    <!--<div id="background_video">
-      <video autoplay loop muted poster="assets/images/monhegan-shore.jpg">
-        <source src="assets/images/background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>-->
-    <div id="background_image">
-    <img />
-    <section id="home-screen-container">
-      <!--<div class="transparent-box">-->
-        <div id="home-screen-text">
-          <h1>Greg Hamelin</h1>
-          <h2 id="title">Python</h2>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge">
+              <span class="dot"></span>
+              Strategic IT Leadership
+            </div>
+            <h1 class="hero-name">Greg Hamelin</h1>
+            <p class="hero-title">
+              <span class="typed-text" id="typed-text"></span><span class="cursor"></span>
+            </p>
+            <p class="hero-description">
+              I help organizations build resilient IT infrastructure, navigate CMMC compliance, integrate AI solutions, and drive digital transformation — with 10+ years of strategic IT leadership.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn-primary" id="hero-cta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                Get in Touch
+              </a>
+              <a href="Greg Hamelin - Resume 2025 (v2).pdf" class="btn-secondary" target="_blank" id="resume-download">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download Resume
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <div class="hero-stat-number">10+</div>
+                <div class="hero-stat-label">Years Experience</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-number">AI</div>
+                <div class="hero-stat-label">Integration</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-number">CMMC</div>
+                <div class="hero-stat-label">CCP Exam Passed</div>
+              </div>
+              <div class="hero-stat">
+                <div class="hero-stat-number">AWS</div>
+                <div class="hero-stat-label">Cloud Hosting</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image-wrapper">
+            <div class="hero-image-ring">
+              <img src="assets/images/greg-headshot.png" alt="Greg Hamelin — vCIO & Cybersecurity Strategist" width="380" height="380">
+            </div>
+          </div>
         </div>
-      <!--</div>-->
+      </div>
     </section>
-    <div class="flex-container">
-      <div class="flex-box">
-        <a href="https://github.com/hamelin7/Python_Weather_Dashboard" target="_blank">
-        <img src=./assets/images/python-logo.png alt="Python">
-        </a>
-        <p class="overlay-text">Python</p>
-      </div>
-      <div class="flex-box">
-        <a href="https://github.com/hamelin7/NextJS_Weather_Dashboard" target="_blank">
-        <img src=./assets/images/JavaScript-logo.png alt="JavaScript">
-        </a>
-        <p class="overlay-text">JS</p>
-      </div>
-      <div class="flex-box">
-        <a href="https://github.com/hamelin7/Bash-CreateNewUsers" target="_blank">
-        <img src=./assets/images/Tux_logo.png alt="Linux">
-        </a>
-        <p class="overlay-text">Linux</p>
-      </div>
-      <div class="flex-box">
-        <a href="https://github.com/hamelin7/PhoneBreak" target="_blank">
-        <img src=./assets/images/react-logo.png alt="REACT">
-        </a>
-        <p class="overlay-text">React</p>
-      </div>
-    </div>
-    </div>
-  </div>
 
-  <footer id="myfooter">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <p class="text-center footer_text">
-            &copy; 2024 Greg Hamelin | <a id="contact" href=mailto:greg@greghamelin.com">greg@greghamelin.com</a>
-          </p>
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title">Turning IT Challenges Into Strategic Advantages</h2>
+            <p>
+              I'm a dynamic vCIO and Cybersecurity Strategist with over a decade of experience in IT strategic planning, consultative sales, and business development. I've built my career at the intersection of technology and business — helping organizations transform their IT from a cost center into a competitive advantage.
+            </p>
+            <p>
+              Currently specializing in CMMC compliance frameworks and AWS cloud hosting, I provide high-stakes security guidance for growth-oriented organizations. Whether it's developing multi-year IT roadmaps, leading teams through DoD certification, or deploying secure cloud solutions — I bring both strategic vision and hands-on technical depth.
+            </p>
+          </div>
+          <div class="about-highlights reveal reveal-delay-2">
+            <div class="about-highlight-card">
+              <div class="icon">🎯</div>
+              <h4>Strategic Planning</h4>
+              <p>Multi-year IT roadmaps aligned with business goals</p>
+            </div>
+            <div class="about-highlight-card">
+              <div class="icon">🛡️</div>
+              <h4>CMMC Compliance</h4>
+              <p>CCP-certified DoD compliance guidance</p>
+            </div>
+            <div class="about-highlight-card">
+              <div class="icon">☁️</div>
+              <h4>Cloud Hosting</h4>
+              <p>AWS-based web hosting & infrastructure</p>
+            </div>
+            <div class="about-highlight-card">
+              <div class="icon">🤖</div>
+              <h4>AI Integration</h4>
+              <p>AI agents, chatbots & local LLMs</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section id="services">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">What I Do</span>
+          <h2 class="section-title">Areas of Expertise</h2>
+          <p class="section-subtitle">Combining strategic IT leadership with deep technical knowledge to deliver measurable business outcomes.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal reveal-delay-1">
+            <div class="service-icon">📋</div>
+            <h3>vCIO Strategy</h3>
+            <p>Develop and execute multi-year IT roadmaps aligned with business goals — focusing on risk mitigation, digital transformation, and measurable ROI.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-2">
+            <div class="service-icon">🔒</div>
+            <h3>CMMC Compliance</h3>
+            <p>CCP-certified guidance through the CMMC certification process — ensuring technical and administrative adherence to Department of Defense standards.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-3">
+            <div class="service-icon">☁️</div>
+            <h3>Cloud Hosting & AWS</h3>
+            <p>Deploy and manage web hosting environments using AWS services — Route 53, Lightsail, EC2 instances, and S3 — delivering reliable, secure infrastructure.</p>
+          </div>
+          <div class="service-card reveal reveal-delay-4">
+            <div class="service-icon">🤖</div>
+            <h3>AI Integration</h3>
+            <p>Build and deploy AI agents, chatbots, and intelligent automation — leveraging APIs, locally hosted LLMs, and Linux-based AI infrastructure to solve real business problems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section id="experience">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Career Journey</span>
+          <h2 class="section-title">Professional Experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">July 2016 — Present</span>
+            <div class="timeline-card">
+              <h3>Account Relationship Manager / vCIO</h3>
+              <p class="company">Paragus Strategic I.T. — Hadley, MA</p>
+              <ul>
+                <li>Develop and execute multi-year IT roadmaps aligned with client business goals, focusing on risk mitigation and digital transformation</li>
+                <li>Lead clients through CMMC compliance, ensuring adherence to DoD standards</li>
+                <li>Deploy and manage web hosting environments in AWS using Route 53, Lightsail, EC2, and S3</li>
+                <li>Lead cross-functional teams, mentoring members on consultative sales and cybersecurity</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">May 2013 — Present</span>
+            <div class="timeline-card">
+              <h3>Technical Consultant / Web Developer</h3>
+              <p class="company">Western Mass Web Design and Programming</p>
+              <ul>
+                <li>Design and maintain custom websites for local nonprofits and businesses using Python and JavaScript/Node.js</li>
+                <li>Optimize web performance and community engagement through effective UI/UX design and cloud-hosted solutions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <span class="timeline-date">Jan 2015 — June 2016</span>
+            <div class="timeline-card">
+              <h3>System Support Specialist</h3>
+              <p class="company">Paragus Strategic I.T. — Hadley, MA</p>
+              <ul>
+                <li>Managed intake and troubleshooting for complex server, network, and workstation issues</li>
+                <li>Handled firewall configurations and Active Directory administration</li>
+                <li>Coordinated with clients to provide rapid, effective technical solutions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section id="skills">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Core Competencies</span>
+          <h2 class="section-title">Skills & Certifications</h2>
+        </div>
+
+        <div class="cert-badge reveal" style="max-width: 560px; margin-bottom: 32px;">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-info">
+            <h4>CMMC Certified Professional (CCP)</h4>
+            <p>The Cyber AB — Exam Passed · Pending Tier 3 Background Check</p>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category reveal reveal-delay-1">
+            <h3>🎯 Strategic Leadership</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">vCIO Strategic Planning</span>
+              <span class="skill-tag">Account Management</span>
+              <span class="skill-tag">Business Development</span>
+              <span class="skill-tag">Board Governance</span>
+              <span class="skill-tag">Consultative Sales</span>
+              <span class="skill-tag">Client Retention</span>
+            </div>
+          </div>
+          <div class="skill-category reveal reveal-delay-2">
+            <h3>🛡️ Security & Compliance</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">CMMC Framework (CCP)</span>
+              <span class="skill-tag">Active Directory / GPO</span>
+              <span class="skill-tag">TCP/IP Networking</span>
+              <span class="skill-tag">Security Auditing</span>
+              <span class="skill-tag">Risk Mitigation</span>
+              <span class="skill-tag">Firewall Configuration</span>
+            </div>
+          </div>
+          <div class="skill-category reveal reveal-delay-3">
+            <h3>⚙️ Technical Infrastructure</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS (Route 53, Lightsail, EC2, S3)</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Node.js / JavaScript</span>
+              <span class="skill-tag">AI Agents & Chatbots</span>
+              <span class="skill-tag">Local LLM Hosting</span>
+              <span class="skill-tag">Windows Server Admin</span>
+              <span class="skill-tag">GNU/Linux</span>
+              <span class="skill-tag">ConnectWise Manage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEADERSHIP SECTION ===== -->
+    <section id="leadership">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Community Impact</span>
+          <h2 class="section-title">Advisory & Board Experience</h2>
+        </div>
+        <div class="leadership-grid">
+          <div class="leadership-card reveal reveal-delay-1">
+            <div class="leadership-icon">🏛️</div>
+            <h3>Board of Directors</h3>
+            <p class="org">Paragus Strategic I.T.</p>
+            <p class="dates">2022 — Present</p>
+          </div>
+          <div class="leadership-card reveal reveal-delay-2">
+            <div class="leadership-icon">🎓</div>
+            <h3>CIT Advisory Board</h3>
+            <p class="org">Springfield Technical Community College</p>
+            <p class="dates">2019 — Present</p>
+          </div>
+          <div class="leadership-card reveal reveal-delay-3">
+            <div class="leadership-icon">🚀</div>
+            <h3>Career Ambassador</h3>
+            <p class="org">Tech Foundry</p>
+            <p class="dates">2016 — 2021</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION SECTION ===== -->
+    <section id="education" style="padding: 60px 0; background: var(--bg-primary);">
+      <div class="container">
+        <div class="reveal" style="text-align: center;">
+          <span class="section-label">Education</span>
+          <h2 class="section-title">Academic Background</h2>
+          <div style="margin-top: 32px; padding: 32px; border-radius: var(--border-radius); background: var(--bg-card); border: 1px solid var(--bg-glass-border); max-width: 600px; margin-left: auto; margin-right: auto;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-heading); margin-bottom: 8px;">Bachelor of Arts: Computer Science</h3>
+            <p style="color: var(--accent-cyan); font-size: 0.95rem; margin-bottom: 4px;">Information Technology and Security — Dual Major</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 4px;">Our Lady of the Elms — Chicopee, MA</p>
+            <p style="color: var(--accent-purple); font-weight: 600; font-size: 0.85rem;">High Honors</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">Let's Connect</span>
+          <h2 class="section-title">Get in Touch</h2>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info reveal">
+            <p>Whether you're looking for a strategic IT leader, need CMMC compliance guidance, or just want to connect — I'd love to hear from you.</p>
+            <div class="contact-links">
+              <a href="mailto:greg@greghamelin.com" class="contact-link-item" id="contact-email">
+                <div class="contact-link-icon">📧</div>
+                <span>greg@greghamelin.com</span>
+              </a>
+              <a href="https://www.linkedin.com/in/greg-hamelin-70429030/" target="_blank" rel="noopener noreferrer" class="contact-link-item" id="contact-linkedin">
+                <div class="contact-link-icon">💼</div>
+                <span>LinkedIn Profile</span>
+              </a>
+              <a href="https://github.com/hamelin7" target="_blank" rel="noopener noreferrer" class="contact-link-item" id="contact-github">
+                <div class="contact-link-icon">💻</div>
+                <span>GitHub Profile</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form reveal reveal-delay-2">
+            <form id="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+              <div class="form-group">
+                <label for="form-name">Your Name</label>
+                <input type="text" id="form-name" name="name" placeholder="John Smith" required>
+              </div>
+              <div class="form-group">
+                <label for="form-email">Your Email</label>
+                <input type="email" id="form-email" name="email" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="form-subject">Subject</label>
+                <input type="text" id="form-subject" name="subject" placeholder="Opportunity / Inquiry">
+              </div>
+              <div class="form-group">
+                <label for="form-message">Message</label>
+                <textarea id="form-message" name="message" placeholder="Tell me about the opportunity..." required></textarea>
+              </div>
+              <button type="submit" class="form-submit" id="form-submit-btn">Send Message</button>
+              <p class="form-status" id="form-status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text">&copy; 2025 Greg Hamelin. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/greg-hamelin-70429030/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/hamelin7" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+            <a href="mailto:greg@greghamelin.com" aria-label="Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== CHATBOT ===== -->
+    <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open chat assistant">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+    </button>
+
+    <div class="chatbot-window" id="chatbot-window">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar">G</div>
+          <div>
+            <h4>Greg's Assistant</h4>
+            <p>Ask me anything about Greg</p>
+          </div>
+        </div>
+        <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">✕</button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <!-- Messages populate here -->
+      </div>
+      <div class="chatbot-input-area">
+        <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Ask about my experience..." autocomplete="off">
+        <button class="chatbot-send" id="chatbot-send" aria-label="Send message">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
     </div>
-  </footer>
-  <script src="index.js"></script>
+
+    <script src="index.js"></script>
   </body>
 </html>
