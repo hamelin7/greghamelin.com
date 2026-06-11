@@ -144,13 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const formStatus = document.getElementById('form-status');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
+    contactForm.addEventListener('submit', (e) => {
       const formAction = contactForm.getAttribute('action');
 
-      // Check if Formspree is configured
-      if (formAction.includes('placeholder')) {
+      // Check if Formspree is configured. If not, use mailto fallback.
+      if (!formAction || formAction.includes('placeholder')) {
+        e.preventDefault();
         formStatus.textContent = 'Form is ready! Please set up a free Formspree endpoint to enable submissions.';
         formStatus.className = 'form-status error';
 
@@ -165,31 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // If Formspree is configured with a real endpoint, we DO NOT prevent default.
+      // This allows the browser to perform a standard form submission.
+      // Standard submission correctly handles Formspree's reCAPTCHA challenge,
+      // avoiding the 403 Forbidden error that occurs with AJAX fetch.
       const submitBtn = document.getElementById('form-submit-btn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-
-      try {
-        const response = await fetch(formAction, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
-          formStatus.className = 'form-status success';
-          contactForm.reset();
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch (error) {
-        formStatus.textContent = 'Something went wrong. Please email me directly.';
-        formStatus.className = 'form-status error';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
-      }
+      submitBtn.textContent = 'Redirecting...';
     });
   }
 
@@ -254,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     resume: {
       keywords: ['resume', 'cv', 'download', 'pdf'],
-      response: "You can download Greg's resume by clicking the 'Download Resume' button in the hero section at the top of the page, or visit: greghamelin.com/Greg%20Hamelin%20-%20Resume%202025%20(v2).pdf"
+      response: "You can download Greg's resume by clicking the 'Download Resume' button in the hero section at the top of the page, or visit: greghamelin.com/Greg%20Hamelin%20-%20Resume.pdf"
     },
     why: {
       keywords: ['why hire', 'why should', 'what makes', 'stand out', 'unique', 'different', 'value'],
