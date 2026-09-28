@@ -1,369 +1,229 @@
 /* ===================================================
    GREG HAMELIN — Site JavaScript
-   Typing animation, scroll reveals, nav, chatbot, form
+   Example concierge conversations, concierge widget, footer year
    =================================================== */
+
+/*
+  CONCIERGE_ENDPOINT: leave empty until the AI version is live.
+  When it's ready, set this to your server-side function URL (for example an AWS Lambda
+  function URL). The function receives { message, history } as JSON and returns { reply }.
+  Never put an API key in this file. It is public.
+*/
+const CONCIERGE_ENDPOINT = '';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===== TYPING ANIMATION =====
-  const typedElement = document.getElementById('typed-text');
-  const titles = [
-    'vCIO & IT Strategist',
-    'CMMC Compliance Specialist',
-    'Cybersecurity Strategist',
-    'AI Integration & Automation',
-    'AWS Cloud & IT Infrastructure',
-    'IT Leadership & Board Member',
-  ];
+  // ===== FOOTER YEAR =====
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
 
-  let titleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let typeSpeed = 80;
-
-  function typeEffect() {
-    const current = titles[titleIndex];
-
-    if (!isDeleting) {
-      typedElement.textContent = current.substring(0, charIndex + 1);
-      charIndex++;
-
-      if (charIndex === current.length) {
-        isDeleting = true;
-        typeSpeed = 2000; // Pause at end
-      } else {
-        typeSpeed = 70 + Math.random() * 40;
-      }
-    } else {
-      typedElement.textContent = current.substring(0, charIndex - 1);
-      charIndex--;
-
-      if (charIndex === 0) {
-        isDeleting = false;
-        titleIndex = (titleIndex + 1) % titles.length;
-        typeSpeed = 400; // Pause before next word
-      } else {
-        typeSpeed = 35;
-      }
-    }
-
-    setTimeout(typeEffect, typeSpeed);
-  }
-
-  typeEffect();
-
-
-  // ===== SCROLL REVEAL (Intersection Observer) =====
-  const revealElements = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -60px 0px'
-  });
-
-  revealElements.forEach(el => revealObserver.observe(el));
-
-
-  // ===== NAVBAR SCROLL EFFECT =====
-  const navbar = document.getElementById('navbar');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }, { passive: true });
-
-
-  // ===== ACTIVE NAV LINK HIGHLIGHTING =====
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }, {
-    threshold: 0.3,
-    rootMargin: '-80px 0px -50% 0px'
-  });
-
-  sections.forEach(section => navObserver.observe(section));
-
-
-  // ===== MOBILE MENU TOGGLE =====
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinksEl = document.getElementById('nav-links');
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinksEl.classList.toggle('open');
-    document.body.style.overflow = navLinksEl.classList.contains('open') ? 'hidden' : '';
-  });
-
-  // Close mobile menu when a link is clicked
-  navLinksEl.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navLinksEl.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-
-
-  // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-
-  // ===== CONTACT FORM (Formspree-compatible) =====
-  const contactForm = document.getElementById('contact-form');
-  const formStatus = document.getElementById('form-status');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      const formAction = contactForm.getAttribute('action');
-
-      // Check if Formspree is configured. If not, use mailto fallback.
-      if (!formAction || formAction.includes('placeholder')) {
-        e.preventDefault();
-        formStatus.textContent = 'Form is ready! Please set up a free Formspree endpoint to enable submissions.';
-        formStatus.className = 'form-status error';
-
-        // Fallback: open mailto
-        const name = document.getElementById('form-name').value;
-        const email = document.getElementById('form-email').value;
-        const subject = document.getElementById('form-subject').value;
-        const message = document.getElementById('form-message').value;
-
-        const mailtoLink = `mailto:greg@greghamelin.com?subject=${encodeURIComponent(subject || 'Website Inquiry')}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
-        window.location.href = mailtoLink;
-        return;
-      }
-
-      // If Formspree is configured with a real endpoint, we DO NOT prevent default.
-      // This allows the browser to perform a standard form submission.
-      // Standard submission correctly handles Formspree's reCAPTCHA challenge,
-      // avoiding the 403 Forbidden error that occurs with AJAX fetch.
-      const submitBtn = document.getElementById('form-submit-btn');
-      submitBtn.textContent = 'Redirecting...';
-    });
-  }
-
-
-  // ===== CHATBOT =====
-  const chatbotToggle = document.getElementById('chatbot-toggle');
-  const chatbotWindow = document.getElementById('chatbot-window');
-  const chatbotClose = document.getElementById('chatbot-close');
-  const chatbotInput = document.getElementById('chatbot-input');
-  const chatbotSend = document.getElementById('chatbot-send');
-  const chatbotMessages = document.getElementById('chatbot-messages');
-
-  // Knowledge base for the chatbot
-  const knowledgeBase = {
-    greeting: {
-      keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'howdy', 'greetings'],
-      response: "Hey there! 👋 I'm Greg's virtual assistant. I can tell you about his experience, skills, certifications, education, or how to get in touch. What would you like to know?"
+  // ===== EXAMPLE CONVERSATIONS (hero phone) =====
+  const scenarios = {
+    paint: {
+      biz: 'Example Painting Co.',
+      items: [
+        ['time', 'Tonight · 10:14 pm'],
+        ['c', "Hi, do you paint kitchen cabinets? We're in Agawam."],
+        ['a', 'Yes, cabinet refinishing is one of our services, and Agawam is in our service area. Want a free estimate? I just need a few details.'],
+        ['c', 'Sure. About 20 doors, going white. Can I send a photo?'],
+        ['a', "Please do! What's the best number to reach you? The owner will call you tomorrow morning."],
+        ['lead', 'New estimate request · 10:16 pm', 'Cabinet refinishing · ~20 doors · white · Agawam · photo attached · sent to your phone']
+      ]
     },
-    experience: {
-      keywords: ['experience', 'work', 'career', 'job', 'history', 'background', 'years', 'how long'],
-      response: "Greg has 10+ years of IT leadership experience. He's currently an Account Relationship Manager & vCIO at Paragus Strategic I.T. (since 2016), where he develops multi-year IT roadmaps, leads CMMC compliance efforts, and architects AWS cloud infrastructure. He also runs Western Mass Web Design and Programming as a technical consultant."
-    },
-    vcio: {
-      keywords: ['vcio', 'cio', 'strategic', 'strategy', 'roadmap', 'planning', 'virtual cio'],
-      response: "As a vCIO, Greg develops and executes multi-year IT roadmaps aligned with client business goals. He focuses on risk mitigation, digital transformation, and client retention. He brings a unique blend of strategic vision and hands-on technical depth to every engagement."
-    },
-    cmmc: {
-      keywords: ['cmmc', 'compliance', 'certification', 'ccp', 'dod', 'defense', 'department of defense', 'cyber ab'],
-      response: "Greg has passed the CMMC Certified Professional (CCP) exam through The Cyber AB. His certification is pending completion of a Tier 3 background check. He leads clients through the CMMC compliance process, ensuring both technical and administrative adherence to Department of Defense standards. This is a highly in-demand credential in the Defense Industrial Base."
-    },
-    skills: {
-      keywords: ['skills', 'technologies', 'tech stack', 'tools', 'what can', 'programming', 'languages'],
-      response: "Greg's skill set spans three areas:\n\n🎯 Strategic: vCIO Planning, Account Management, Business Development, Board Governance\n\n🛡️ Security: CMMC (CCP — exam passed, pending background check), Active Directory/GPO, TCP/IP, Security Auditing\n\n⚙️ Technical: AWS (Route 53, Lightsail, EC2, S3), Python, Node.js, AI Agents & Chatbots, Local LLM Hosting, Windows Server, Linux, ConnectWise"
-    },
-    aws: {
-      keywords: ['aws', 'amazon', 'cloud', 'ec2', 'vpc', 's3', 'infrastructure', 'lightsail', 'route 53'],
-      response: "Greg uses AWS to host websites and manage infrastructure. His hands-on experience includes Route 53 for DNS management, Lightsail for web hosting, EC2 instances for compute, and S3 for storage. He deploys and manages these services for both his own projects and client-facing applications."
-    },
-    education: {
-      keywords: ['education', 'degree', 'college', 'university', 'school', 'study', 'major', 'academic'],
-      response: "Greg holds a Bachelor of Arts in Computer Science with a dual major in Information Technology and Security from Our Lady of the Elms in Chicopee, MA. He graduated with High Honors."
-    },
-    board: {
-      keywords: ['board', 'advisory', 'leadership', 'community', 'volunteer', 'director', 'governance'],
-      response: "Greg has significant board and advisory experience:\n\n🏛️ Board of Directors — Paragus Strategic I.T. (2022–Present)\n🎓 CIT Advisory Board — Springfield Technical Community College (2019–Present)\n🚀 Career Ambassador — Tech Foundry (2016–2021)"
-    },
-    contact: {
-      keywords: ['contact', 'reach', 'email', 'phone', 'hire', 'connect', 'available', 'opportunity'],
-      response: "You can reach Greg at:\n\n📧 greg@greghamelin.com\n📱 (413) 992-4299\n💼 LinkedIn: linkedin.com/in/greg-hamelin-70429030\n\nOr use the contact form right here on this page! He's currently open to new opportunities."
-    },
-    location: {
-      keywords: ['location', 'where', 'based', 'live', 'city', 'state', 'remote'],
-      response: "Greg is based in Westfield, Massachusetts. He's open to both local and remote opportunities."
-    },
-    paragus: {
-      keywords: ['paragus', 'company', 'employer', 'current', 'msp'],
-      response: "Paragus Strategic I.T. is a managed service provider based in Hadley, MA. Greg has been with Paragus since 2015 — first as a System Support Specialist, then advancing to Account Relationship Manager & vCIO. He also serves on their Board of Directors."
-    },
-    python: {
-      keywords: ['python', 'node', 'javascript', 'react', 'coding', 'development', 'developer', 'web dev'],
-      response: "While Greg's primary focus is IT strategy and cybersecurity, he has strong technical chops. He develops with Python and JavaScript/Node.js, builds custom websites, and has hands-on experience with React, HTML/CSS, Linux, Bash, and Git. His technical depth gives him credibility when architecting solutions."
-    },
-    resume: {
-      keywords: ['resume', 'cv', 'download', 'pdf'],
-      response: "You can download Greg's resume by clicking the 'Download Resume' button in the hero section at the top of the page, or visit: greghamelin.com/Greg%20Hamelin%20-%20Resume.pdf"
-    },
-    why: {
-      keywords: ['why hire', 'why should', 'what makes', 'stand out', 'unique', 'different', 'value'],
-      response: "What makes Greg stand out is his rare combination of strategic IT leadership AND hands-on technical depth. He's not just an advisor — he can deploy AWS infrastructure, build AI agents, write Python code, and configure Active Directory. Add a CMMC certification (exam passed, pending background check) and board-level experience, and you get a leader who bridges the gap between business strategy and technical execution."
-    },
-    ai: {
-      keywords: ['ai', 'artificial intelligence', 'machine learning', 'llm', 'chatbot', 'agent', 'automation', 'gpt', 'language model', 'local llm'],
-      response: "Greg has hands-on experience building AI agents, chatbots, and intelligent automation solutions. With a Computer Science educational background and deep Linux expertise, he can integrate AI using various APIs as well as deploy and manage locally hosted LLMs and AI agents on Linux infrastructure. He bridges the gap between AI capabilities and practical business applications."
+    spa: {
+      biz: 'Example Day Spa',
+      items: [
+        ['time', 'Sunday · 9:48 pm'],
+        ['c', 'How much is a lash lift? Any Saturday openings?'],
+        ['a', 'A lash lift with tint is $95 on our menu. Saturdays fill up fast, so the best way to see live openings is online booking.', 'See Saturday times'],
+        ['c', 'Perfect. Can I get a gift card for my sister too?'],
+        ['a', 'Of course! You can buy an eGift card online. Anything else I can help with?', 'Shop gift cards'],
+        ['lead', 'Sent to booking · 9:50 pm', 'Lash lift · looking at Saturday · gift card link opened']
+      ]
     }
   };
 
-  const defaultResponse = "I'm not sure about that specific topic, but I can tell you about Greg's experience, skills, certifications (like CMMC), education, board roles, or how to contact him. What interests you?";
+  const thread = document.getElementById('demo-thread');
+  const bizName = document.getElementById('demo-biz');
+  const scenButtons = document.querySelectorAll('.scen button');
 
-  const initialSuggestions = ['Experience', 'Skills', 'CMMC', 'Contact'];
-
-  function addMessage(text, isUser = false) {
-    const msg = document.createElement('div');
-    msg.className = `chat-message ${isUser ? 'user' : 'bot'}`;
-    msg.textContent = text;
-    chatbotMessages.appendChild(msg);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  }
-
-  function addSuggestions(suggestions) {
-    const container = document.createElement('div');
-    container.className = 'chat-suggestions';
-    suggestions.forEach(text => {
-      const btn = document.createElement('button');
-      btn.className = 'chat-suggestion';
-      btn.textContent = text;
-      btn.addEventListener('click', () => {
-        container.remove();
-        processUserInput(text);
-      });
-      container.appendChild(btn);
-    });
-    chatbotMessages.appendChild(container);
-    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-  }
-
-  function findResponse(input) {
-    const lower = input.toLowerCase().trim();
-
-    // Check each knowledge base entry
-    let bestMatch = null;
-    let bestScore = 0;
-
-    for (const [key, entry] of Object.entries(knowledgeBase)) {
-      let score = 0;
-      for (const keyword of entry.keywords) {
-        if (lower.includes(keyword)) {
-          score += keyword.length; // Longer matches score higher
+  function renderScenario(key, animate) {
+    const s = scenarios[key];
+    if (!s || !thread) return;
+    bizName.textContent = s.biz;
+    thread.textContent = '';
+    thread.classList.remove('play');
+    s.items.forEach((item) => {
+      const [type, text, extra] = item;
+      let el;
+      if (type === 'time') {
+        el = document.createElement('span');
+        el.className = 'time';
+        el.textContent = text;
+      } else if (type === 'lead') {
+        el = document.createElement('div');
+        el.className = 'leadcard';
+        const b = document.createElement('b');
+        b.textContent = text;
+        const span = document.createElement('span');
+        span.textContent = extra;
+        el.append(b, span);
+      } else {
+        el = document.createElement('div');
+        el.className = 'b ' + type;
+        el.textContent = text;
+        if (extra) {
+          const link = document.createElement('a');
+          link.href = '#concierge';
+          link.textContent = ' ' + extra;
+          el.append(link);
         }
       }
-      if (score > bestScore) {
-        bestScore = score;
-        bestMatch = entry;
-      }
+      thread.appendChild(el);
+    });
+    if (animate) {
+      void thread.offsetWidth; // restart the animation
+      thread.classList.add('play');
     }
-
-    return bestMatch ? bestMatch.response : defaultResponse;
+    scenButtons.forEach((b) => b.setAttribute('aria-pressed', b.dataset.scen === key ? 'true' : 'false'));
   }
 
-  function processUserInput(text) {
-    addMessage(text, true);
+  scenButtons.forEach((b) => b.addEventListener('click', () => renderScenario(b.dataset.scen, true)));
+  renderScenario('paint', false);
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const response = findResponse(text);
-      addMessage(response);
+  // ===== CONCIERGE WIDGET =====
+  const cwBtn = document.getElementById('cw-btn');
+  const cwPanel = document.getElementById('cw-panel');
+  const cwClose = document.getElementById('cw-x');
+  const cwLog = document.getElementById('cw-log');
+  const cwForm = document.getElementById('cw-form');
+  const cwInput = document.getElementById('cw-input');
+  const history = [];
 
-      // Add contextual follow-up suggestions
-      const lower = text.toLowerCase();
-      let suggestions = [];
-      if (lower.includes('experience') || lower.includes('work')) {
-        suggestions = ['Skills', 'CMMC', 'Board Roles', 'Contact'];
-      } else if (lower.includes('skill') || lower.includes('tech')) {
-        suggestions = ['AWS Cloud', 'Experience', 'Education', 'Contact'];
-      } else if (lower.includes('cmmc') || lower.includes('compliance')) {
-        suggestions = ['Experience', 'Skills', 'Why Hire Greg', 'Contact'];
-      } else if (lower.includes('contact') || lower.includes('hire')) {
-        suggestions = ['Experience', 'Skills', 'Resume'];
-      } else {
-        suggestions = ['Experience', 'Skills', 'CMMC', 'Contact'];
-      }
-      addSuggestions(suggestions);
-    }, 400 + Math.random() * 300);
+  // Label the widget honestly: it only calls itself AI once the AI endpoint is live.
+  if (CONCIERGE_ENDPOINT) {
+    document.getElementById('cw-sub').textContent = "AI concierge · answers from Greg's info";
+    document.getElementById('cw-disclose').textContent =
+      "I'm an AI concierge. I answer from Greg's own info, and I'll hand you to Greg for anything else.";
   }
 
-  // Initialize chatbot
-  function initChatbot() {
-    chatbotMessages.innerHTML = '';
-    addMessage("👋 Hi! I'm Greg's virtual assistant. Ask me anything about his experience, skills, or how to get in touch!");
-    addSuggestions(initialSuggestions);
+  function openChat() {
+    cwPanel.hidden = false;
+    cwBtn.setAttribute('aria-expanded', 'true');
+    cwInput.focus();
   }
-
-  // Toggle chatbot
-  chatbotToggle.addEventListener('click', () => {
-    chatbotWindow.classList.toggle('open');
-    if (chatbotWindow.classList.contains('open') && chatbotMessages.children.length === 0) {
-      initChatbot();
-    }
-    if (chatbotWindow.classList.contains('open')) {
-      chatbotInput.focus();
-    }
+  function closeChat() {
+    cwPanel.hidden = true;
+    cwBtn.setAttribute('aria-expanded', 'false');
+    cwBtn.focus();
+  }
+  cwBtn.addEventListener('click', () => (cwPanel.hidden ? openChat() : closeChat()));
+  cwClose.addEventListener('click', closeChat);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !cwPanel.hidden) closeChat();
   });
 
-  chatbotClose.addEventListener('click', () => {
-    chatbotWindow.classList.remove('open');
-  });
+  function addMessage(who, text, link) {
+    const msg = document.createElement('div');
+    msg.className = 'cw-msg ' + who;
+    msg.textContent = text;
+    if (link) {
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = ' ' + link.label;
+      a.addEventListener('click', () => { if (link.href.startsWith('#')) closeChat(); });
+      msg.append(a);
+    }
+    cwLog.appendChild(msg);
+    cwLog.scrollTop = cwLog.scrollHeight;
+  }
 
-  // Send message
-  function sendChatMessage() {
-    const text = chatbotInput.value.trim();
-    if (text) {
-      // Remove any existing suggestions
-      const existingSuggestions = chatbotMessages.querySelectorAll('.chat-suggestions');
-      existingSuggestions.forEach(s => s.remove());
+  const bookLink = { href: '#book', label: 'Book a free call' };
 
-      processUserInput(text);
-      chatbotInput.value = '';
+  // Scripted answers (used until CONCIERGE_ENDPOINT is set).
+  // todo (pre-launch): confirm the prices below match the pricing section.
+  const answers = {
+    cost: ['Packages start at $2,500 for up to 5 pages, and you get a fixed price before any work starts. Want to scope yours on a free call?', bookLink],
+    time: ['It depends on the size of the site and how quickly the photos and text come together. Greg will give you a timeline on your free call.', bookLink],
+    ai: ["An AI concierge sits on your website like a front desk. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. Setup starts at $1,000 plus $75/month.", { href: '#concierge', label: 'See an example' }],
+    book: ['Great! Leave your name and email in the form and Greg will reply to set up a 20-minute call.', bookLink],
+    own: ['Yes. Your domain, your content, and your code are yours. Website management plans are month-to-month.', null],
+    diy: ["Wix and Squarespace are fine if you have time to build and maintain the site yourself. Greg builds sites planned around getting customers, and he keeps them current for you.", bookLink],
+    work: ['Recent work includes Lush Aesthetics & Beauty in Westfield and Get Custom Paint on the NH and Maine Seacoast.', { href: '#work', label: 'See the work' }],
+    fallback: ["I don't have a good answer for that one. Greg can help on a free 20-minute call.", bookLink]
+  };
+
+  const quickLabels = {
+    cost: 'What does a website cost?',
+    time: 'How long does it take?',
+    ai: "What's an AI concierge?",
+    book: 'Book a call'
+  };
+
+  function matchTopic(text) {
+    const t = text.toLowerCase();
+    if (/(price|cost|how much|\$|budget|expensive|afford)/.test(t)) return 'cost';
+    if (/(how long|timeline|weeks|when can|how soon|turnaround)/.test(t)) return 'time';
+    if (/(\bai\b|concierge|chat|bot|assistant)/.test(t)) return 'ai';
+    if (/(book|call|talk|meet|schedule|appointment|contact)/.test(t)) return 'book';
+    if (/(own|domain|contract|cancel|lock)/.test(t)) return 'own';
+    if (/(wix|squarespace|godaddy|diy|myself)/.test(t)) return 'diy';
+    if (/(work|portfolio|example|clients?|built)/.test(t)) return 'work';
+    return 'fallback';
+  }
+
+  function scriptedReply(topic) {
+    const [text, link] = answers[topic];
+    setTimeout(() => addMessage('bot', text, link), 350);
+  }
+
+  async function aiReply(message) {
+    try {
+      const res = await fetch(CONCIERGE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, history: history.slice(-10) })
+      });
+      if (!res.ok) throw new Error('Bad response');
+      const data = await res.json();
+      const reply = (data && data.reply) || answers.fallback[0];
+      history.push({ role: 'assistant', content: reply });
+      addMessage('bot', reply);
+    } catch (err) {
+      addMessage('bot', "Sorry, I can't answer right now. You can still book a free call with Greg.", bookLink);
     }
   }
 
-  chatbotSend.addEventListener('click', sendChatMessage);
-  chatbotInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      sendChatMessage();
+  function ask(text, topicHint) {
+    addMessage('me', text);
+    history.push({ role: 'user', content: text });
+    if (CONCIERGE_ENDPOINT && !topicHint) {
+      aiReply(text);
+    } else {
+      scriptedReply(topicHint || matchTopic(text));
     }
+  }
+
+  document.querySelectorAll('#cw-quick button').forEach((btn) => {
+    btn.addEventListener('click', () => ask(quickLabels[btn.dataset.q], btn.dataset.q));
   });
 
+  cwForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = cwInput.value.trim();
+    if (!text) return;
+    cwInput.value = '';
+    ask(text);
+  });
+
+  // ===== BOOKING FORM =====
+  // The form posts straight to Formspree (standard submission, no fetch), which handles
+  // Formspree's spam check reliably. This only shows a sending state.
+  const bookForm = document.getElementById('book-form');
+  if (bookForm) {
+    bookForm.addEventListener('submit', () => {
+      const btn = document.getElementById('book-submit');
+      if (btn) btn.textContent = 'Sending...';
+    });
+  }
 });
