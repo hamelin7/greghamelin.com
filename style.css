@@ -1,7 +1,10 @@
 /* ===================================================
-   GREG HAMELIN — Websites + AI Concierge
+   GREG HAMELIN — Web design & strategy + AI integration
    "Front Desk" design system
    =================================================== */
+
+/* GH monogram in the nav */
+.logo-mark{width:36px;height:36px;flex:none;display:block}
 
 /* --- Design tokens --- */
 :root{
@@ -86,9 +89,11 @@ section{padding-block:clamp(60px,8vw,110px)}
 .hero{padding-block:clamp(40px,6vw,76px) clamp(60px,8vw,100px)}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,64px);align-items:center}
 .hero-copy{display:grid;gap:24px;justify-items:start}
-.hero h1{font-size:clamp(3rem,7.4vw,6.6rem);line-height:1.02;font-weight:800;letter-spacing:.01em}
-/* Highlighter stroke behind the lower part of the letters, so lines never cover each other */
-.hero h1 .hl{background:linear-gradient(to bottom,transparent 58%,var(--hivis) 58%,var(--hivis) 92%,transparent 92%);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1{font-size:clamp(3.4rem,9.2vw,8rem);line-height:.88;font-weight:900;letter-spacing:.005em}
+/* Each highlighted line is its own block: the yellow paints behind all the text,
+   and the small gap keeps one line's highlight from covering the line above. */
+.hero h1 .h1-top{display:block}
+.hero h1 .hl{display:table;background:var(--hivis);padding:.03em .08em;margin-top:.08em}
 .lede{font-size:clamp(18px,1.6vw,20px);max-width:44ch;color:#24344D}
 .ctas{display:flex;flex-wrap:wrap;gap:14px}
 .proof{display:grid;gap:10px}

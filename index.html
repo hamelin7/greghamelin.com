@@ -28,6 +28,8 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
   <script type="application/ld+json">
   {
@@ -38,6 +40,7 @@
     "url": "https://greghamelin.com/",
     "email": "greg@greghamelin.com",
     "image": "https://greghamelin.com/assets/images/greg-casual.jpg",
+    "logo": "https://greghamelin.com/assets/images/logo/gh-mark-512.png",
     "areaServed": { "@type": "AdministrativeArea", "name": "Western Massachusetts" },
     "founder": { "@type": "Person", "name": "Greg Hamelin" },
     "knowsAbout": ["Web design", "Website management", "AI chat concierge", "Local search"]
@@ -57,7 +60,14 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav" aria-label="Main">
     <div class="wrap">
-      <a class="logo" href="#top"><b>Greg Hamelin</b><span>Web design &amp; strategy + AI integration</span></a>
+      <a class="logo" href="#top">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="12" fill="#FFD233" />
+          <path fill="#0F1B2D"
+            d="M8 14h7v36h-7zM8 14h22v7h-22zM8 43h22v7h-22zM23 29h7v21h-7zM19 29h11v7h-11zM34 14h7v36h-7zM49 14h7v36h-7zM34 29h22v7h-22z" />
+        </svg>
+        <b>Greg Hamelin</b><span>Web design &amp; strategy + AI integration</span>
+      </a>
       <div class="nav-links">
         <a href="#concierge">AI concierge</a>
         <a href="#work">Work</a>
@@ -74,7 +84,7 @@
       <div class="wrap">
         <div class="hero-copy">
           <span class="tagline"><i></i>Web design &amp; strategy + AI integration · Western Mass</span>
-          <h1>Answers at 10pm. <span class="hl">Leads by morning.</span></h1>
+          <h1><span class="h1-top">Answers at 10pm.</span> <span class="hl">Leads by</span> <span class="hl">morning.</span></h1>
           <p class="lede">I build websites for local service businesses with an AI concierge built in. It greets your
             visitors, answers their questions from your real info, collects the job details, and sends you the lead
             while you're on a job or off the clock.</p>
