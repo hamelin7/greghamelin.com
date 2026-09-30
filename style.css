@@ -280,6 +280,9 @@ h1,h2,h3,p{overflow-wrap:break-word}
   .nav-links{font-size:16.5px;gap:26px}
   .nav .btn{font-size:15.5px;padding:12px 18px}
   footer{font-size:14.5px}
+  .cw-btn{font-size:15.5px;padding:14px 21px 14px 17px;gap:11px}
+  .cw-btn svg{width:25px;height:25px}
+  .cw-panel{bottom:calc(92px + env(safe-area-inset-bottom,0px) + var(--cw-lift,0px))}
 }
 
 /* Client proof in the Work section */
