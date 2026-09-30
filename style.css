@@ -1,5 +1,5 @@
 /* ===================================================
-   GREG HAMELIN — Web design & strategy + AI integration
+   GREG HAMELIN — Web Strategy + AI Integration
    "Front Desk" design system
    =================================================== */
 
@@ -269,4 +269,15 @@ h1,h2,h3,p{overflow-wrap:break-word}
 .hero-copy,.sec-head,.final-copy,.job,.plan,.who > div{grid-template-columns:minmax(0,1fr);min-width:0}
 .tagline{max-width:100%}
 .tagline i{flex:none}
-@media (max-width:1100px){.logo span{display:none}}
+@media (max-width:1200px){.logo span{display:none}}
+
+/* Desktop: slightly larger header and footer text */
+@media (min-width:900px){
+  .nav .wrap{min-height:72px}
+  .logo-mark{width:38px;height:38px}
+  .logo b{font-size:28px}
+  .logo span{font-size:12.5px}
+  .nav-links{font-size:16.5px;gap:26px}
+  .nav .btn{font-size:15.5px;padding:12px 18px}
+  footer{font-size:14.5px}
+}
