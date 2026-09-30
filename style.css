@@ -228,9 +228,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
 .foot-links{display:flex;flex-wrap:wrap;gap:6px 18px}
 
 /* --- Concierge chat widget --- */
-.cw-btn{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:10px;border:2px solid var(--ink);border-radius:999px;padding:12px 18px 12px 14px;background:var(--hivis);color:var(--ink);font:700 14.5px/1.1 var(--font-body);box-shadow:0 10px 30px -8px rgba(0,0,0,.35)}
+.cw-btn{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px) + var(--cw-lift,0px));z-index:70;display:flex;align-items:center;gap:10px;border:2px solid var(--ink);border-radius:999px;padding:12px 18px 12px 14px;background:var(--hivis);color:var(--ink);font:700 14.5px/1.1 var(--font-body);box-shadow:0 10px 30px -8px rgba(0,0,0,.35)}
 .cw-btn svg{width:22px;height:22px;flex:none}
-.cw-panel{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:71;width:min(370px,calc(100vw - 32px));max-height:min(580px,calc(100vh - 120px));display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:18px;box-shadow:0 24px 60px -12px rgba(0,0,0,.4);border:1px solid rgba(0,0,0,.08);overflow:hidden}
+.cw-panel{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px) + var(--cw-lift,0px));z-index:71;width:min(370px,calc(100vw - 32px));max-height:min(580px,calc(100vh - 120px));display:flex;flex-direction:column;background:#fff;color:var(--ink);border-radius:18px;box-shadow:0 24px 60px -12px rgba(0,0,0,.4);border:1px solid rgba(0,0,0,.08);overflow:hidden}
 .cw-panel[hidden]{display:none}
 .cw-head{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--ink);color:#fff}
 .cw-head img{width:34px;height:34px;border-radius:50%;object-fit:cover}
@@ -256,9 +256,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
 @media (max-width:719px){
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:65;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid #C9CFD9}
   .mbar a{flex:1;text-align:center;text-decoration:none;border-radius:10px;padding:14px 10px;font:700 15.5px/1 var(--font-body);background:var(--hivis);color:var(--ink);border:2px solid var(--ink)}
-  .cw-btn{bottom:calc(80px + env(safe-area-inset-bottom,0px));padding:12px}
+  .cw-btn{bottom:calc(80px + env(safe-area-inset-bottom,0px) + var(--cw-lift,0px));padding:12px}
   .cw-btn span{display:none}
-  .cw-panel{bottom:calc(146px + env(safe-area-inset-bottom,0px));max-height:calc(100vh - 170px)}
+  .cw-panel{bottom:calc(146px + env(safe-area-inset-bottom,0px) + var(--cw-lift,0px));max-height:calc(100vh - 170px)}
   body{padding-bottom:76px}
 }
 
@@ -281,3 +281,10 @@ h1,h2,h3,p{overflow-wrap:break-word}
   .nav .btn{font-size:15.5px;padding:12px 18px}
   footer{font-size:14.5px}
 }
+
+/* Client proof in the Work section */
+.job .result{display:flex;align-items:center;gap:12px;margin:0;color:var(--ink);font-weight:600;font-size:16px}
+.job .result b{font:900 38px/1 var(--font-display);background:var(--hivis);padding:.04em .14em}
+.job .quote{margin:0;border-left:4px solid var(--hivis);padding:4px 0 4px 16px;display:grid;gap:8px}
+.job .quote p{margin:0;color:var(--ink);font-size:17px;line-height:1.5}
+.job .quote cite{font:600 12.5px/1.3 var(--font-mono);font-style:normal;color:var(--steel);text-transform:uppercase;letter-spacing:.05em}

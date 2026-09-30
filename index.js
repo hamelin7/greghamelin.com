@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookLink = { href: '#book', label: 'Book a free call' };
 
   // Scripted answers (used until CONCIERGE_ENDPOINT is set).
-  // todo (pre-launch): confirm the prices below match the pricing section.
+  // Keep these prices in sync with the pricing section in index.html.
   const answers = {
     cost: ['Packages start at $2,500 for up to 5 pages, and you get a fixed price before any work starts. Want to scope yours on a free call?', bookLink],
-    time: ['It depends on the size of the site and how quickly the photos and text come together. Greg will give you a timeline on your free call.', bookLink],
+    time: ['Most sites launch 3–6 weeks after the first call, depending on size and how quickly photos and text come together. You get a timeline before any work starts.', bookLink],
     ai: ["An AI concierge sits on your website like a front desk. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. Setup starts at $1,000 plus $75/month.", { href: '#concierge', label: 'See an example' }],
     book: ['Great! Leave your name and email in the form and Greg will reply to set up a 20-minute call.', bookLink],
     own: ['Yes. Your domain, your content, and your code are yours. Website management plans are month-to-month.', null],
@@ -215,6 +215,25 @@ document.addEventListener('DOMContentLoaded', () => {
     cwInput.value = '';
     ask(text);
   });
+
+  // ===== KEEP THE CONCIERGE BUTTON OFF THE FOOTER =====
+  // When the footer scrolls into view, lift the button (and its panel) so they sit above it.
+  const siteFooter = document.querySelector('footer');
+  const mobileBar = document.querySelector('.mbar');
+  function liftForFooter() {
+    if (!siteFooter) return;
+    const barHeight = mobileBar && getComputedStyle(mobileBar).display !== 'none' ? mobileBar.offsetHeight : 0;
+    const overlap = Math.max(0, (window.innerHeight - barHeight) - siteFooter.getBoundingClientRect().top);
+    document.documentElement.style.setProperty('--cw-lift', Math.round(overlap) + 'px');
+  }
+  let liftQueued = false;
+  window.addEventListener('scroll', () => {
+    if (liftQueued) return;
+    liftQueued = true;
+    requestAnimationFrame(() => { liftForFooter(); liftQueued = false; });
+  }, { passive: true });
+  window.addEventListener('resize', liftForFooter);
+  liftForFooter();
 
   // ===== BOOKING FORM =====
   // The form posts straight to Formspree (standard submission, no fetch), which handles
