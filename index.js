@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cwLog.scrollTop = cwLog.scrollHeight;
   }
 
-  const bookLink = { href: '#book', label: 'Book a free call' };
+  const bookLink = { href: '/book/?utm_source=chat', label: 'Book a free call' };
 
   // Scripted answers (used until CONCIERGE_ENDPOINT is set).
   // Keep these prices in sync with the pricing section in index.html.
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cost: ['Packages start at $2,500 for up to 5 pages, and you get a fixed price before any work starts. Want to scope yours on a free call?', bookLink],
     time: ['Most sites launch 3–6 weeks after the first call, depending on size and how quickly photos and text come together. You get a timeline before any work starts.', bookLink],
     ai: ["24/7 customer chat sits on your website like a front desk that never closes. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. Setup starts at $1,000 plus $25/month.", { href: '#concierge', label: 'See an example' }],
-    book: ['Great! Leave your name and email in the form and Greg will reply to set up a 20-minute call.', bookLink],
+    book: ['Great! Pick any open time on Greg\'s calendar for a free 20-minute call.', { href: '/book/?utm_source=chat', label: 'See open times' }],
     own: ['Yes. Your domain, your content, and your code are yours. Website management plans are month-to-month.', null],
     diy: ["Wix and Squarespace are fine if you have time to build and maintain the site yourself. Greg builds sites planned around getting customers, and he keeps them current for you.", bookLink],
     work: ['Recent work includes Lush Aesthetics & Beauty in Westfield and Get Custom Paint on the NH and Maine Seacoast.', { href: '#work', label: 'See the work' }],
@@ -235,14 +235,4 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', liftForFooter);
   liftForFooter();
 
-  // ===== BOOKING FORM =====
-  // The form posts straight to Formspree (standard submission, no fetch), which handles
-  // Formspree's spam check reliably. This only shows a sending state.
-  const bookForm = document.getElementById('book-form');
-  if (bookForm) {
-    bookForm.addEventListener('submit', () => {
-      const btn = document.getElementById('book-submit');
-      if (btn) btn.textContent = 'Sending...';
-    });
-  }
 });

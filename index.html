@@ -75,7 +75,7 @@
         <a href="#pricing">Pricing</a>
         <a href="#about">About</a>
       </div>
-      <a class="btn btn-main" href="#book">Book a free call</a>
+      <a class="btn btn-main" href="/book/?utm_source=site">Book a free call</a>
     </div>
   </nav>
 
@@ -90,7 +90,7 @@
             visitors, answers their questions from your real info, collects the job details, and sends you the lead
             while you're on a job or off the clock. After launch, I keep it all running.</p>
           <div class="ctas">
-            <a class="btn btn-main" href="#book">Book a free call
+            <a class="btn btn-main" href="/book/?utm_source=site">Book a free call
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
                 stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             <a class="btn btn-alt" href="#concierge">See how it works</a>
@@ -199,7 +199,6 @@
             </blockquote>
           </article>
         </div>
-        <p class="earlier">Earlier work includes sites for local nonprofits and a local brewery.</p>
       </div>
     </section>
 
@@ -288,7 +287,7 @@
           </details>
           <details>
             <summary>Will my customers know it's AI?</summary>
-            <p>Yes. It tells them up front that it's an AI assistant, and it always offers a real person.</p>
+            <p>Yes. Its first message says it's an AI assistant for your business, so nobody is misled. It answers only from the information you've approved, and it never pretends to be you or someone on your staff. If a customer wants a real person, or asks something it can't answer, it offers a call, a text back, or a quote request. With the customer's OK, it sends their name, number, and question straight to you.</p>
           </details>
           <details>
             <summary>How long does it take?</summary>
@@ -317,40 +316,19 @@
           <p>Prefer email? <a href="mailto:greg@greghamelin.com">greg@greghamelin.com</a></p>
         </div>
 
-        <form class="book-form" id="book-form" action="https://formspree.io/f/xzdqakqq" method="POST">
-          <h3>Request your free call</h3>
-          <input type="hidden" name="_subject" value="Free call request from greghamelin.com">
-          <div class="field-row">
-            <div class="field">
-              <label for="f-name">Your name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="f-business">Business name</label>
-              <input id="f-business" name="business" type="text" autocomplete="organization">
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone <small>(optional)</small></label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-site">Current website <small>(if you have one)</small></label>
-            <input id="f-site" name="website" type="text" inputmode="url" placeholder="yourbusiness.com">
-          </div>
-          <div class="field">
-            <label for="f-msg">What should your website do for you?</label>
-            <textarea id="f-msg" name="message" placeholder="More bookings, more estimate requests, fewer phone calls about hours..."></textarea>
-          </div>
-          <button class="btn btn-main" type="submit" id="book-submit">Request my free call</button>
-          <p class="form-note">I'll reply to set up a time. No sales pitch, no pressure.</p>
-        </form>
+        <div class="book-form book-card">
+          <h3>Pick a time for your free call</h3>
+          <ul class="book-points">
+            <li>20 minutes on a video call</li>
+            <li>Choose any open time on my calendar</li>
+            <li>A few quick questions so I come prepared</li>
+            <li>No sales pitch, no pressure</li>
+          </ul>
+          <a class="btn btn-main" href="/book/?utm_source=site">See open times
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+          <p class="form-note">Takes about a minute. You'll get a confirmation email with the call link.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -394,7 +372,7 @@
   </div>
 
   <!-- Mobile booking bar -->
-  <div class="mbar"><a href="#book">Book a free 20-min call</a></div>
+  <div class="mbar"><a href="/book/?utm_source=site">Book a free 20-min call</a></div>
 
   <script src="index.js" defer></script>
 </body>
