@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Label the widget honestly: it only calls itself AI once the AI endpoint is live.
   if (CONCIERGE_ENDPOINT) {
-    document.getElementById('cw-sub').textContent = "AI concierge · answers from Greg's info";
+    document.getElementById('cw-sub').textContent = "AI chat · answers from Greg's info";
     document.getElementById('cw-disclose').textContent =
-      "I'm an AI concierge. I answer from Greg's own info, and I'll hand you to Greg for anything else.";
+      "I'm an AI chat assistant. I answer from Greg's own info, and I'll hand you to Greg for anything else.";
   }
 
   function openChat() {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const answers = {
     cost: ['Packages start at $2,500 for up to 5 pages, and you get a fixed price before any work starts. Want to scope yours on a free call?', bookLink],
     time: ['Most sites launch 3–6 weeks after the first call, depending on size and how quickly photos and text come together. You get a timeline before any work starts.', bookLink],
-    ai: ["An AI concierge sits on your website like a front desk. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. Setup starts at $1,000 plus $75/month.", { href: '#concierge', label: 'See an example' }],
+    ai: ["24/7 customer chat sits on your website like a front desk that never closes. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. Setup starts at $1,000 plus $25/month.", { href: '#concierge', label: 'See an example' }],
     book: ['Great! Leave your name and email in the form and Greg will reply to set up a 20-minute call.', bookLink],
     own: ['Yes. Your domain, your content, and your code are yours. Website management plans are month-to-month.', null],
     diy: ["Wix and Squarespace are fine if you have time to build and maintain the site yourself. Greg builds sites planned around getting customers, and he keeps them current for you.", bookLink],
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const quickLabels = {
     cost: 'What does a website cost?',
     time: 'How long does it take?',
-    ai: "What's an AI concierge?",
+    ai: "What's 24/7 customer chat?",
     book: 'Book a call'
   };
 

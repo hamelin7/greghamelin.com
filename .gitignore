@@ -1,2 +1,6 @@
 # Cowork / Claude working files (project notes, drafts). Keep them out of the public site.
 Claude outputs/
+
+# macOS Finder files
+.DS_Store
+**/.DS_Store
