@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const answers = {
     cost: ['Packages start at $2,500 for up to 5 pages, and you get a fixed price before any work starts. Want to scope yours on a free call?', bookLink],
     time: ['Most sites launch 3–6 weeks after the first call, depending on size and how quickly photos and text come together. You get a timeline before any work starts.', bookLink],
-    ai: ["24/7 customer chat sits on your website like a front desk that never closes. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. Setup starts at $1,000 plus $25/month.", { href: '#concierge', label: 'See an example' }],
+    ai: ["24/7 customer chat sits on your website like a front desk that never closes. It greets visitors, answers their questions from your own info, and sends them to book, call, or request a quote. It's included with Grow and Custom sites, or $1,000 to add to a Launch site. The chat is $25/month.", { href: '#concierge', label: 'See an example' }],
     book: ['Great! Pick any open time on Greg\'s calendar for a free 20-minute call.', { href: '/book/?utm_source=chat', label: 'See open times' }],
     own: ['Yes. Your domain, your content, and your code are yours. Website management plans are month-to-month.', null],
     diy: ["Wix and Squarespace are fine if you have time to build and maintain the site yourself. Greg builds sites planned around getting customers, and he keeps them current for you.", bookLink],
